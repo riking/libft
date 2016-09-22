@@ -6,7 +6,7 @@
 #    By: kyork <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/08/22 09:02:39 by kyork             #+#    #+#              #
-#    Updated: 2016/09/22 11:36:49 by kyork            ###   ########.fr        #
+#    Updated: 2016/09/22 12:23:34 by kyork            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,9 @@ TESTS		+= strstr memchr
 FILENAMES	+= ft_strcat.c ft_strncat.c ft_strlcat.c
 TESTS		+= strcat strncat strlcat
 
-FILENAMES	+= ft_memset.c ft_bzero.c ft_strnew.c ft_memalloc.c
+# need tests
+FILENAMES	+= ft_memset.c ft_bzero.c ft_strnew.c ft_memalloc.c ft_strdup.c ft_memdel.c
+FILENAMES	+= ft_strdel.c ft_strclr.c ft_striter.c ft_striteri.c ft_strmap.c ft_strmapi.c
 TESTS		+=
 NAME		= libft.a
 
@@ -57,6 +59,9 @@ else
 	TESTS2 = $(TESTS)
 endif
 
+ifdef ALLOCWRAP
+	LDFLAGS += $(HOME)/server/42/alloc_check/alloc_wrap.c
+endif
 
 SRCS	= $(FILENAMES)
 OBJS	= $(addprefix build/, $(FILENAMES:.c=.o))
