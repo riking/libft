@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/15 10:08:57 by kyork             #+#    #+#             */
-/*   Updated: 2016/09/21 18:48:17 by kyork            ###   ########.fr       */
+/*   Created: 2016/08/15 09:16:29 by kyork             #+#    #+#             */
+/*   Updated: 2016/08/16 12:21:15 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int		ft_strcmp(const char *o_s1, const char *o_s2)
+char	*ft_strstr(char *str, char *to_find)
 {
-	unsigned const char	*s1;
-	unsigned const char	*s2;
-	size_t				i;
+	char *s;
+	char *f;
 
-	s1 = (unsigned const char*)o_s1;
-	s2 = (unsigned const char*)o_s2;
-	i = 0;
-	while (s1[i] && s2[i])
+	while (*str)
 	{
-		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
-		i++;
+		s = str;
+		f = to_find;
+		while (*s && *f)
+			if (*s++ != *f)
+				break ;
+			else
+				f++;
+		if (*f == 0)
+			return (str);
+		str++;
 	}
-	return (s1[i] - s2[i]);
+	return (0);
 }

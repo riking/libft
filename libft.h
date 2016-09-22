@@ -6,14 +6,14 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/18 11:01:11 by kyork             #+#    #+#             */
-/*   Updated: 2016/09/21 11:49:16 by kyork            ###   ########.fr       */
+/*   Updated: 2016/09/21 16:32:01 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-#include <string.h>
+# include <string.h>
 
 void		ft_putchar(char c);
 void		ft_putstr(char const *str);
@@ -85,5 +85,9 @@ int			ft_tolower(int c);
 # define FD_STDIN  0
 # define FD_STDOUT 1
 # define FD_STDERR 2
+
+# ifndef VERBOSE
+#  define VERBOSE 0
+# endif
 
 #endif

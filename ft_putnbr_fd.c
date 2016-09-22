@@ -6,7 +6,7 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/09 22:12:26 by kyork             #+#    #+#             */
-/*   Updated: 2016/09/21 12:03:27 by kyork            ###   ########.fr       */
+/*   Updated: 2016/09/21 14:51:16 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ void	ft_putnbr_fd(int nbr, int fd)
 
 	if (nbr < 0)
 	{
-		ft_putchar('-');
+		ft_putchar_fd('-', fd);
 		if (nbr == -2147483648)
 		{
-			ft_putchar('2');
+			ft_putchar_fd('2', fd);
 			nbr %= 1000000000;
 		}
 		nbr = -nbr;

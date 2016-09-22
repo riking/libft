@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/15 10:08:57 by kyork             #+#    #+#             */
-/*   Updated: 2016/09/21 18:48:17 by kyork            ###   ########.fr       */
+/*   Created: 2016/08/15 12:19:51 by kyork             #+#    #+#             */
+/*   Updated: 2016/09/21 16:40:40 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strcmp(const char *o_s1, const char *o_s2)
+char	*ft_strcat(char *dst, const char *src)
 {
-	unsigned const char	*s1;
-	unsigned const char	*s2;
-	size_t				i;
+	char *orig_dst;
 
-	s1 = (unsigned const char*)o_s1;
-	s2 = (unsigned const char*)o_s2;
-	i = 0;
-	while (s1[i] && s2[i])
-	{
-		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
-		i++;
-	}
-	return (s1[i] - s2[i]);
+	orig_dst = dst;
+	while (*dst)
+		dst++;
+	while (*src)
+		*dst++ = *src++;
+	*dst = 0;
+	return (orig_dst);
 }

@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/15 10:08:57 by kyork             #+#    #+#             */
-/*   Updated: 2016/09/21 18:48:17 by kyork            ###   ########.fr       */
+/*   Created: 2016/08/15 09:01:55 by kyork             #+#    #+#             */
+/*   Updated: 2016/08/15 22:55:30 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int		ft_strcmp(const char *o_s1, const char *o_s2)
+char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
-	unsigned const char	*s1;
-	unsigned const char	*s2;
-	size_t				i;
+	char			*d;
+	unsigned int	len;
 
-	s1 = (unsigned const char*)o_s1;
-	s2 = (unsigned const char*)o_s2;
-	i = 0;
-	while (s1[i] && s2[i])
+	d = dest;
+	len = 0;
+	while (*src && len < n)
 	{
-		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
-		i++;
+		*dest++ = *src++;
+		len++;
 	}
-	return (s1[i] - s2[i]);
+	while (len < n)
+	{
+		*dest++ = 0;
+		len++;
+	}
+	return (d);
 }
