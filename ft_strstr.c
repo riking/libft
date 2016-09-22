@@ -6,14 +6,16 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 09:16:29 by kyork             #+#    #+#             */
-/*   Updated: 2016/08/16 12:21:15 by kyork            ###   ########.fr       */
+/*   Updated: 2016/09/22 12:11:18 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strstr(char *str, char *to_find)
+#include "libft.h"
+
+char	*ft_strstr(const char *str, const char *to_find)
 {
-	char *s;
-	char *f;
+	const char *s;
+	const char *f;
 
 	while (*str)
 	{
@@ -25,7 +27,7 @@ char	*ft_strstr(char *str, char *to_find)
 			else
 				f++;
 		if (*f == 0)
-			return (str);
+			return ((char*)str);
 		str++;
 	}
 	return (0);

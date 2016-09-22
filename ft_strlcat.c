@@ -6,9 +6,11 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 12:58:03 by kyork             #+#    #+#             */
-/*   Updated: 2016/08/16 12:04:17 by kyork            ###   ########.fr       */
+/*   Updated: 2016/09/22 12:06:32 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 /*
 ** Return value is length of dst plus length of src, BUT
@@ -22,22 +24,12 @@
 ** return dst length + src length
 */
 
-unsigned int	ft_strlcat__strlen(char *str)
+size_t			ft_strlcat(char *dst, const char *src, size_t size)
 {
-	char *s;
-
-	s = str;
-	while (*s)
-		s++;
-	return (s - str);
-}
-
-unsigned int	ft_strlcat(char *dst, char *src, unsigned int size)
-{
-	unsigned int	dstsize;
-	unsigned int	space_left;
-	char			*d;
-	char			*s;
+	size_t		dstsize;
+	size_t		space_left;
+	char		*d;
+	const char	*s;
 
 	d = dst;
 	space_left = size;
@@ -46,7 +38,7 @@ unsigned int	ft_strlcat(char *dst, char *src, unsigned int size)
 	dstsize = (d - dst);
 	space_left = size - dstsize;
 	if (space_left <= 0)
-		return (size + ft_strlcat__strlen(src));
+		return (size + ft_strlen(src));
 	s = src;
 	while (*s && space_left-- > 1)
 		*d++ = *s++;

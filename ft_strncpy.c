@@ -6,11 +6,13 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 09:01:55 by kyork             #+#    #+#             */
-/*   Updated: 2016/08/15 22:55:30 by kyork            ###   ########.fr       */
+/*   Updated: 2016/09/22 12:12:11 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
+#include "libft.h"
+
+char	*ft_strncpy(char *dest, const char *src, size_t n)
 {
 	char			*d;
 	unsigned int	len;

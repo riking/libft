@@ -6,7 +6,7 @@
 #    By: kyork <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/08/22 09:02:39 by kyork             #+#    #+#              #
-#    Updated: 2016/09/21 19:28:01 by kyork            ###   ########.fr        #
+#    Updated: 2016/09/22 11:36:49 by kyork            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ TESTS		+= isstuff
 FILENAMES	+= ft_putchar.c ft_putstr.c ft_putendl.c ft_putnbr.c
 FILENAMES	+= ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
 TESTS		+= putstuff
+FILENAMES	+= ft_itoa.c
 TESTS		+= putnbr
 
 FILENAMES	+= ft_atoi.c
@@ -34,7 +35,7 @@ TESTS		+= strstr memchr
 FILENAMES	+= ft_strcat.c ft_strncat.c ft_strlcat.c
 TESTS		+= strcat strncat strlcat
 
-FILENAMES	+= ft_memset.c ft_bzero.c
+FILENAMES	+= ft_memset.c ft_bzero.c ft_strnew.c ft_memalloc.c
 TESTS		+=
 NAME		= libft.a
 
@@ -50,10 +51,17 @@ else
 	#LDFLAGS	+= -O3 -fomit-frame-pointer -DNDEBUG -flto
 endif
 
+ifdef ONLY
+	TESTS2 = $(filter $(ONLY), $(TESTS))
+else
+	TESTS2 = $(TESTS)
+endif
+
+
 SRCS	= $(FILENAMES)
 OBJS	= $(addprefix build/, $(FILENAMES:.c=.o))
 
-TESTTARGETS	= $(addprefix test-, $(TESTS))
+TESTTARGETS	= $(addprefix test-, $(TESTS2))
 TESTBINS	= $(addprefix build/, $(TESTTARGETS))
 
 .PHONY: all clean fclean re test $(TESTTARGETS)
