@@ -6,7 +6,7 @@
 #    By: kyork <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/08/22 09:02:39 by kyork             #+#    #+#              #
-#    Updated: 2016/09/22 12:23:34 by kyork            ###   ########.fr        #
+#    Updated: 2016/09/22 16:06:02 by kyork            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,11 +26,15 @@ TESTS		+= atoi
 FILENAMES	+= ft_strcpy.c ft_strncpy.c ft_strcmp.c ft_strncmp.c ft_strlen.c
 TESTS		+= strcpy strncpy			strcmp strncmp           strlen
 
+FILENAMES	+= ft_strequ.c ft_strnequ.c
+TESTS		+=
+
 FILENAMES	+= ft_memmove.c ft_memcpy.c ft_memccpy.c ft_memcmp.c
 TESTS		+= memmove memcpy memccpy memcmp
 
-FILENAMES	+= ft_strstr.c ft_memchr.c
-TESTS		+= strstr memchr
+FILENAMES	+= ft_strstr.c ft_memchr.c ft_strchr.c ft_strrchr.c
+FILENAMES	+= ft_strnstr.c
+TESTS		+= strstr memchr           strchr
 
 FILENAMES	+= ft_strcat.c ft_strncat.c ft_strlcat.c
 TESTS		+= strcat strncat strlcat
