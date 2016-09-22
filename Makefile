@@ -6,7 +6,7 @@
 #    By: kyork <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/08/22 09:02:39 by kyork             #+#    #+#              #
-#    Updated: 2016/09/21 18:42:33 by kyork            ###   ########.fr        #
+#    Updated: 2016/09/21 19:28:01 by kyork            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,19 +22,19 @@ TESTS		+= putnbr
 FILENAMES	+= ft_atoi.c
 TESTS		+= atoi
 
-FILENAMES	+= ft_strcpy.c ft_strncpy.c ft_strcmp.c ft_strncmp.c
-TESTS		+= strcpy strncpy			strcmp strncmp
+FILENAMES	+= ft_strcpy.c ft_strncpy.c ft_strcmp.c ft_strncmp.c ft_strlen.c
+TESTS		+= strcpy strncpy			strcmp strncmp           strlen
 
-FILENAMES	+= ft_memmove.c ft_memcpy.c ft_memccpy.c
-TESTS		+= memmove ft_memcpy memstuff
+FILENAMES	+= ft_memmove.c ft_memcpy.c ft_memccpy.c ft_memcmp.c
+TESTS		+= memmove memcpy memccpy memcmp
 
-FILENAMES	+= ft_strstr.c
-TESTS		+= strstr
+FILENAMES	+= ft_strstr.c ft_memchr.c
+TESTS		+= strstr memchr
 
 FILENAMES	+= ft_strcat.c ft_strncat.c ft_strlcat.c
 TESTS		+= strcat strncat strlcat
 
-FILENAMES	+= ft_strlcat.c ft_memset.c ft_bzero.c ft_memcmp.c
+FILENAMES	+= ft_memset.c ft_bzero.c
 TESTS		+=
 NAME		= libft.a
 
