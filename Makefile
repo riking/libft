@@ -6,7 +6,7 @@
 #    By: kyork <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/08/22 09:02:39 by kyork             #+#    #+#              #
-#    Updated: 2016/09/22 16:06:02 by kyork            ###   ########.fr        #
+#    Updated: 2016/09/23 11:41:20 by kyork            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,15 +39,37 @@ TESTS		+= strstr memchr           strchr
 FILENAMES	+= ft_strcat.c ft_strncat.c ft_strlcat.c
 TESTS		+= strcat strncat strlcat
 
+FILENAMES	+= ft_strjoin.c
+TESTS		+= strjoin
+
+FILENAMES	+= ft_strsub.c
+TESTS		+= strsub
+
+FILENAMES	+= ft_strsplit.c ft_strtrim.c
+TESTS		+= split strtrim
+
 # need tests
 FILENAMES	+= ft_memset.c ft_bzero.c ft_strnew.c ft_memalloc.c ft_strdup.c ft_memdel.c
 FILENAMES	+= ft_strdel.c ft_strclr.c ft_striter.c ft_striteri.c ft_strmap.c ft_strmapi.c
 TESTS		+=
-NAME		= libft.a
 
-CC		= gcc
-CFLAGS	+= -Wall -Wextra -Werror
-LDFLAGS	+= -Wall -Wextra -Werror
+ifndef SKIP_LIST
+	FILENAMES	+= ft_lstnew.c ft_lstdelone.c ft_lstdel.c ft_lstadd.c
+	TESTS		+= lstdel
+	CFLAGS		+= -DHAVE_LIST
+	LDFLAGS		+= -DHAVE_LIST
+endif
+
+ifndef SKIP_KANE
+	FILENAMES	+= ft_strndup.c ft_lstpop.c ft_memdup.c
+	CFLAGS		+= -DHAVE_KANE
+	LDFLAGS		+= -DHAVE_KANE
+endif
+
+NAME		= libft.a
+CC			= gcc
+CFLAGS		+= -Wall -Wextra -Werror
+LDFLAGS		+= -Wall -Wextra -Werror
 
 ifeq ($(DEBUG), 1)
 	CFLAGS	+= -fsanitize=address
@@ -57,14 +79,15 @@ else
 	#LDFLAGS	+= -O3 -fomit-frame-pointer -DNDEBUG -flto
 endif
 
+ifdef ALLOCWRAP
+	LDFLAGS += $(HOME)/server/42/alloc_check/alloc_wrap.c -DHAVE_ALLOCWRAP
+	CFLAGS	+= -DHAVE_ALLOCWRAP
+endif
+
 ifdef ONLY
 	TESTS2 = $(filter $(ONLY), $(TESTS))
 else
 	TESTS2 = $(TESTS)
-endif
-
-ifdef ALLOCWRAP
-	LDFLAGS += $(HOME)/server/42/alloc_check/alloc_wrap.c
 endif
 
 SRCS	= $(FILENAMES)
@@ -88,6 +111,9 @@ fclean: clean
 
 build:
 	mkdir build/
+
+flags:
+	echo DEBUG SKIP_LIST SKIP_KANE ALLOCWRAP ONLY[test]
 
 $(NAME): $(OBJS)
 	ar rcs $@ $^

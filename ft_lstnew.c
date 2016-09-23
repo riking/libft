@@ -1,21 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strclr.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/21 19:38:09 by kyork             #+#    #+#             */
-/*   Updated: 2016/09/23 11:23:30 by kyork            ###   ########.fr       */
+/*   Created: 2016/09/23 10:46:39 by kyork             #+#    #+#             */
+/*   Updated: 2016/09/23 10:56:25 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-void	ft_strclr(char *s)
+t_list		*ft_lstnew(void const *content, size_t cont_size)
 {
-	if (!s)
-		return ;
-	while (*s)
-		*s++ = 0;
+	t_list	*n;
+	void	*c;
+
+	n = (t_list*)malloc(sizeof(t_list));
+	if (!n)
+		return (0);
+	c = ft_memdup(content, cont_size);
+	if (!c)
+	{
+		free(n);
+		return (0);
+	}
+	n->content = c;
+	n->content_size = cont_size;
+	n->next = 0;
+	return (n);
 }

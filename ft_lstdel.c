@@ -1,21 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strclr.c                                        :+:      :+:    :+:   */
+/*   ft_lstdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/21 19:38:09 by kyork             #+#    #+#             */
-/*   Updated: 2016/09/23 11:23:30 by kyork            ###   ########.fr       */
+/*   Created: 2016/09/23 11:12:15 by kyork             #+#    #+#             */
+/*   Updated: 2016/09/23 11:13:59 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_strclr(char *s)
+void		ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {
-	if (!s)
-		return ;
-	while (*s)
-		*s++ = 0;
+	while (*alst)
+		ft_lstpop(alst, del);
 }

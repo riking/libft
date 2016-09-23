@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strclr.c                                        :+:      :+:    :+:   */
+/*   ft_memdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/21 19:38:09 by kyork             #+#    #+#             */
-/*   Updated: 2016/09/23 11:23:30 by kyork            ###   ########.fr       */
+/*   Created: 2016/09/23 10:52:02 by kyork             #+#    #+#             */
+/*   Updated: 2016/09/23 10:57:44 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-void	ft_strclr(char *s)
+void		*ft_memdup(const void *mem, size_t size)
 {
-	if (!s)
-		return ;
-	while (*s)
-		*s++ = 0;
+	void	*dst;
+
+	dst = (void*)malloc(size);
+	if (!dst)
+		return (0);
+	ft_memcpy(dst, mem, size);
+	return (dst);
 }

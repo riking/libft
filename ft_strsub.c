@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strclr.c                                        :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/21 19:38:09 by kyork             #+#    #+#             */
-/*   Updated: 2016/09/23 11:23:30 by kyork            ###   ########.fr       */
+/*   Created: 2016/09/22 16:19:45 by kyork             #+#    #+#             */
+/*   Updated: 2016/09/22 18:31:18 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_strclr(char *s)
+char		*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	if (!s)
-		return ;
-	while (*s)
-		*s++ = 0;
+	return (ft_strndup(s + start, len));
 }

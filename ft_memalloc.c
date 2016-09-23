@@ -6,7 +6,7 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/21 19:32:15 by kyork             #+#    #+#             */
-/*   Updated: 2016/09/21 19:35:35 by kyork            ###   ########.fr       */
+/*   Updated: 2016/09/23 10:57:34 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	*ft_memalloc(size_t size)
 	char	*fill;
 	size_t	i;
 
-	ret = malloc(size);
+	ret = (void*)malloc(size);
 	if (!ret)
 		return (0);
 	fill = ret;
