@@ -6,7 +6,7 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 09:16:29 by kyork             #+#    #+#             */
-/*   Updated: 2016/09/22 16:03:32 by kyork            ###   ########.fr       */
+/*   Updated: 2016/09/23 20:15:15 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strnstr(const char *str, const char *to_find, size_t len)
 	const char *f;
 	const char *s_end;
 
+	if (!*to_find)
+		return ((char*)str);
 	s_end = str + len;
 	while (*str && str <= s_end)
 	{

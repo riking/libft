@@ -6,7 +6,7 @@
 #    By: kyork <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/08/22 09:02:39 by kyork             #+#    #+#              #
-#    Updated: 2016/09/23 11:41:20 by kyork            ###   ########.fr        #
+#    Updated: 2016/09/23 20:12:40 by kyork            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,6 +55,7 @@ TESTS		+=
 
 ifndef SKIP_LIST
 	FILENAMES	+= ft_lstnew.c ft_lstdelone.c ft_lstdel.c ft_lstadd.c
+	FILENAMES	+= ft_lstiter.c ft_lstmap.c
 	TESTS		+= lstdel
 	CFLAGS		+= -DHAVE_LIST
 	LDFLAGS		+= -DHAVE_LIST
@@ -72,8 +73,8 @@ CFLAGS		+= -Wall -Wextra -Werror
 LDFLAGS		+= -Wall -Wextra -Werror
 
 ifeq ($(DEBUG), 1)
-	CFLAGS	+= -fsanitize=address
-	LDFLAGS	+= -fsanitize=address
+	CFLAGS	+= #-fsanitize=address
+	LDFLAGS	+= #-fsanitize=address
 else
 	#CFLAGS	+= -O3 -fomit-frame-pointer -DNDEBUG -flto
 	#LDFLAGS	+= -O3 -fomit-frame-pointer -DNDEBUG -flto
