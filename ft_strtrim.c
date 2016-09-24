@@ -6,7 +6,7 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/17 13:29:23 by kyork             #+#    #+#             */
-/*   Updated: 2016/09/23 20:45:49 by kyork            ###   ########.fr       */
+/*   Updated: 2016/09/23 22:27:18 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void	getbounds(const char **pstr, int *plen)
 	*pstr = str;
 }
 
-char	*ft_strtrim(const char *str)
+char		*ft_strtrim(const char *str)
 {
 	int		len;
 	int		i;
