@@ -6,7 +6,7 @@
 #    By: kyork <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/08/22 09:02:39 by kyork             #+#    #+#              #
-#    Updated: 2016/09/23 20:12:40 by kyork            ###   ########.fr        #
+#    Updated: 2016/09/23 20:51:36 by kyork            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,6 +52,8 @@ TESTS		+= split strtrim
 FILENAMES	+= ft_memset.c ft_bzero.c ft_strnew.c ft_memalloc.c ft_strdup.c ft_memdel.c
 FILENAMES	+= ft_strdel.c ft_strclr.c ft_striter.c ft_striteri.c ft_strmap.c ft_strmapi.c
 TESTS		+=
+
+TESTS		+= quentin yachaka
 
 ifndef SKIP_LIST
 	FILENAMES	+= ft_lstnew.c ft_lstdelone.c ft_lstdel.c ft_lstadd.c
@@ -151,4 +153,7 @@ build/test-strcmp: build/test_strcmp.o libft.a | build
 
 build/test-strncmp: build/test_strncmp.o libft.a | build
 	$(CC) $(filter-out -fsanitize=address,$(LDFLAGS)) -o $@ $^
+
+build/test_quentin.o: test_quentin.c libft.h | build
+	$(CC) $(CFLAGS) -I. -c $< -o $@
 

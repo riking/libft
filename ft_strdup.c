@@ -6,7 +6,7 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/21 19:15:37 by kyork             #+#    #+#             */
-/*   Updated: 2016/09/21 19:31:00 by kyork            ###   ########.fr       */
+/*   Updated: 2016/09/23 20:37:31 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,12 @@ char	*ft_strdup(const char *s1)
 	char	*d;
 
 	len = ft_strlen(s1);
-	dst = (char*)malloc(len + 1);
+	dst = ft_strnew(len);
+	if (!dst)
+		return (0);
 	d = dst;
 	while (*s1)
 		*d++ = *s1++;
+	*d = 0;
 	return (dst);
 }

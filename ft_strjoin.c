@@ -6,7 +6,7 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/22 16:06:50 by kyork             #+#    #+#             */
-/*   Updated: 2016/09/22 16:33:53 by kyork            ###   ########.fr       */
+/*   Updated: 2016/09/23 20:40:41 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	char	*d;
 	char	*dst;
 
+	if (!s1 || !s2)
+		return (0);
 	len = ft_strlen(s1) + ft_strlen(s2);
 	dst = ft_strnew(len);
 	if (!dst)

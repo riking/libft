@@ -6,7 +6,7 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/17 13:29:23 by kyork             #+#    #+#             */
-/*   Updated: 2016/09/23 10:57:01 by kyork            ###   ########.fr       */
+/*   Updated: 2016/09/23 20:43:04 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,8 @@ char		**ft_strsplit(const char *str, char splitchr)
 	const char	*s;
 	char		**tab;
 
+	if (!str)
+		return (0);
 	word_count = ws_split_wordcount(str, splitchr);
 	tab = (char**)malloc(sizeof(char*) * (word_count + 1));
 	if (!tab)
@@ -103,9 +105,8 @@ char		**ft_strsplit(const char *str, char splitchr)
 	while (*s)
 	{
 		if (last_status != IS_SEP(*s))
-			if (last_status)
-				if (!ft_addtotab(tab, word_count++, s, splitchr))
-					return (0);
+			if (last_status && !ft_addtotab(tab, word_count++, s, splitchr))
+				return (0);
 		last_status = IS_SEP(*s);
 		s++;
 	}

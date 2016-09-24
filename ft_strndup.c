@@ -6,7 +6,7 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/22 18:31:23 by kyork             #+#    #+#             */
-/*   Updated: 2016/09/23 20:18:14 by kyork            ###   ########.fr       */
+/*   Updated: 2016/09/23 20:40:57 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,3 @@ char	*ft_strndup(const char *s1, size_t n)
 	ft_strncpy(dst, s1, len);
 	return (dst);
 }
-
