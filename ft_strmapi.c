@@ -6,7 +6,7 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/21 19:41:54 by kyork             #+#    #+#             */
-/*   Updated: 2016/09/23 20:38:37 by kyork            ###   ########.fr       */
+/*   Updated: 2016/09/24 17:44:56 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char			*r;
 	unsigned int	i;
 
-	if (!f)
+	if (!f || !s)
 		return (0);
 	r = ft_strdup(s);
 	if (!r)

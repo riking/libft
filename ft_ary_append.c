@@ -1,21 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striter.c                                       :+:      :+:    :+:   */
+/*   ft_ary_append.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/21 19:39:01 by kyork             #+#    #+#             */
-/*   Updated: 2016/09/24 17:44:31 by kyork            ###   ########.fr       */
+/*   Created: 2016/09/24 14:37:55 by kyork             #+#    #+#             */
+/*   Updated: 2016/09/24 14:46:12 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_striter(char *s, void (*f)(char*))
+t_array	*ft_ary_append(t_array *ary, void *item, int *fail)
 {
-	if (!f || !s)
-		return ;
-	while (*s)
-		f(s++);
+	if (ary->item_count + 1 > ary->item_cap)
+	{
+		ary = ft_ary_grow(ary, ary->item_cap * FT_ARY_GROW_FACTOR, fail);
+		if (*fail)
+			return (ary);
+	}
+	ft_memcpy(((char*)ary->ptr) + (ary->item_size * ary->item_count),
+			item, ary->item_size);
+	ary->item_count += 1;
+	return (ary);
 }

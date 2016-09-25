@@ -1,21 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striter.c                                       :+:      :+:    :+:   */
+/*   ft_ary_destroy.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/21 19:39:01 by kyork             #+#    #+#             */
-/*   Updated: 2016/09/24 17:44:31 by kyork            ###   ########.fr       */
+/*   Created: 2016/09/24 14:54:39 by kyork             #+#    #+#             */
+/*   Updated: 2016/09/24 16:37:54 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-void	ft_striter(char *s, void (*f)(char*))
+void	ft_ary_destroy(t_array **pary)
 {
-	if (!f || !s)
-		return ;
-	while (*s)
-		f(s++);
+	if (*pary)
+	{
+		if ((*pary)->item_cap == 0)
+			;
+		else
+			free((*pary)->ptr);
+	}
+	free(*pary);
+	*pary = 0;
 }

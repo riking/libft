@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striter.c                                       :+:      :+:    :+:   */
+/*   ft_ary_set.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/21 19:39:01 by kyork             #+#    #+#             */
-/*   Updated: 2016/09/24 17:44:31 by kyork            ###   ########.fr       */
+/*   Created: 2016/09/24 15:07:25 by kyork             #+#    #+#             */
+/*   Updated: 2016/09/24 15:23:52 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_striter(char *s, void (*f)(char*))
+void	ft_ary_set(t_array *ary, void *item, size_t idx)
 {
-	if (!f || !s)
-		return ;
-	while (*s)
-		f(s++);
+	ft_memmove(ft_ary_get(ary, idx), item, ary->item_size);
 }

@@ -6,7 +6,7 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/21 09:29:10 by kyork             #+#    #+#             */
-/*   Updated: 2016/09/23 11:21:37 by kyork            ###   ########.fr       */
+/*   Updated: 2016/09/24 17:09:43 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	*ft_memcpy(void *dst, const void *src, size_t length)
 	size_t	t;
 	void	*od;
 
-	if (!src || !dst || length == 0)
+	if (length == 0)
 		return (dst);
 	od = dst;
 	src += length;

@@ -6,7 +6,7 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/21 09:29:10 by kyork             #+#    #+#             */
-/*   Updated: 2016/09/21 15:50:51 by kyork            ###   ########.fr       */
+/*   Updated: 2016/09/24 17:43:42 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,6 @@ static void	ft_memmove_forwards(void *dst, const void *src, size_t length)
 
 void		*ft_memmove(void *dst, const void *src, size_t length)
 {
-	if (!src)
-		return (dst);
 	if (src < dst)
 		ft_memmove_backwards(dst, src, length);
 	else

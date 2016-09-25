@@ -6,7 +6,7 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 12:58:03 by kyork             #+#    #+#             */
-/*   Updated: 2016/09/22 12:06:32 by kyork            ###   ########.fr       */
+/*   Updated: 2016/09/24 17:22:12 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ size_t			ft_strlcat(char *dst, const char *src, size_t size)
 
 	d = dst;
 	space_left = size;
-	while (*d && space_left-- != 0)
+	while (space_left-- != 0 && *d)
 		d++;
 	dstsize = (d - dst);
 	space_left = size - dstsize;

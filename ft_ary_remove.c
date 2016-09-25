@@ -1,21 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striter.c                                       :+:      :+:    :+:   */
+/*   ft_ary_remove.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/21 19:39:01 by kyork             #+#    #+#             */
-/*   Updated: 2016/09/24 17:44:31 by kyork            ###   ########.fr       */
+/*   Created: 2016/09/24 15:09:11 by kyork             #+#    #+#             */
+/*   Updated: 2016/09/24 16:41:45 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_striter(char *s, void (*f)(char*))
+t_array		*ft_ary_remove(t_array *ary, size_t idx)
 {
-	if (!f || !s)
-		return ;
-	while (*s)
-		f(s++);
+	if (ary->item_cap == 0)
+		return (ary);
+	if (idx >= ary->item_count)
+		return (ary);
+	ft_memmove(((char*)ary->ptr) + (idx * ary->item_size),
+				((char*)ary->ptr) + ((idx + 1) * ary->item_size),
+				(ary->item_count - 1 - idx) * ary->item_size);
+	ary->item_count -= 1;
+	return (ary);
 }

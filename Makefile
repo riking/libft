@@ -6,7 +6,7 @@
 #    By: kyork <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/08/22 09:02:39 by kyork             #+#    #+#              #
-#    Updated: 2016/09/23 20:51:36 by kyork            ###   ########.fr        #
+#    Updated: 2016/09/24 17:38:59 by kyork            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,7 +64,13 @@ ifndef SKIP_LIST
 endif
 
 ifndef SKIP_KANE
-	FILENAMES	+= ft_strndup.c ft_lstpop.c ft_memdup.c
+	FILENAMES	+= ft_lstpop.c ft_memdup.c
+
+	FILENAMES	+= ft_ary_create.c ft_ary_viewof.c ft_ary_set.c ft_ary_get.c
+	FILENAMES	+= ft_ary_grow.c ft_ary_append.c ft_ary_insert.c ft_ary_remove.c
+	FILENAMES	+= ft_ary_clear.c ft_ary_destroy.c ft_ary_swap.c
+	FILENAMES	+=
+	TESTS		+= ary
 	CFLAGS		+= -DHAVE_KANE
 	LDFLAGS		+= -DHAVE_KANE
 endif
@@ -75,15 +81,15 @@ CFLAGS		+= -Wall -Wextra -Werror
 LDFLAGS		+= -Wall -Wextra -Werror
 
 ifeq ($(DEBUG), 1)
-	CFLAGS	+= #-fsanitize=address
-	LDFLAGS	+= #-fsanitize=address
+	#CFLAGS	+= -fsanitize=address
+	#LDFLAGS	+= -fsanitize=address
 else
 	#CFLAGS	+= -O3 -fomit-frame-pointer -DNDEBUG -flto
 	#LDFLAGS	+= -O3 -fomit-frame-pointer -DNDEBUG -flto
 endif
 
 ifdef ALLOCWRAP
-	LDFLAGS += $(HOME)/server/42/alloc_check/alloc_wrap.c -DHAVE_ALLOCWRAP
+	LDFLAGS += alloc_wrap.c -DHAVE_ALLOCWRAP
 	CFLAGS	+= -DHAVE_ALLOCWRAP
 endif
 
@@ -99,7 +105,7 @@ OBJS	= $(addprefix build/, $(FILENAMES:.c=.o))
 TESTTARGETS	= $(addprefix test-, $(TESTS2))
 TESTBINS	= $(addprefix build/, $(TESTTARGETS))
 
-.PHONY: all clean fclean re test $(TESTTARGETS)
+.PHONY: all clean fclean re test
 
 all: $(NAME)
 
@@ -130,6 +136,9 @@ test: $(TESTBINS)
 		$$bin ; \
 		echo ; \
 	done
+
+norm:
+	norminette $(SRCS) libft.h | grep -e 'Warning' -e 'Error' -B1 || true
 
 build/test-%: build/test_%.o libft.a | build
 	$(CC) $(LDFLAGS) -o $@ $^

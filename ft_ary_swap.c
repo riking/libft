@@ -1,30 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strndup.c                                       :+:      :+:    :+:   */
+/*   ft_ary_swap.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/22 18:31:23 by kyork             #+#    #+#             */
-/*   Updated: 2016/09/23 20:40:57 by kyork            ###   ########.fr       */
+/*   Created: 2016/09/24 14:56:13 by kyork             #+#    #+#             */
+/*   Updated: 2016/09/24 15:24:34 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strndup(const char *s1, size_t n)
+void	ft_ary_swap(t_array *ary, size_t i, size_t j)
 {
-	size_t	len;
-	char	*dst;
+	char	tmp;
+	char	*a;
+	char	*b;
+	size_t	cpyidx;
 
-	len = ft_strlen(s1);
-	if (n > len)
-		return (0);
-	if (len > n)
-		len = n;
-	dst = ft_strnew(len);
-	if (!dst)
-		return (0);
-	ft_strncpy(dst, s1, len);
-	return (dst);
+	if (i > ary->item_count)
+		return ;
+	if (j > ary->item_count)
+		return ;
+	if (i == j)
+		return ;
+	a = ((char*)ary->ptr) + (i * ary->item_size);
+	b = ((char*)ary->ptr) + (j * ary->item_size);
+	cpyidx = 0;
+	while (cpyidx < ary->item_size)
+	{
+		tmp = a[cpyidx];
+		a[cpyidx] = b[cpyidx];
+		b[cpyidx] = tmp;
+		cpyidx++;
+	}
 }

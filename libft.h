@@ -6,7 +6,7 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/18 11:01:11 by kyork             #+#    #+#             */
-/*   Updated: 2016/09/23 11:44:01 by kyork            ###   ########.fr       */
+/*   Updated: 2016/09/24 16:48:06 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,10 @@ int					ft_tolower(int c);
 #  define VERBOSE 0
 # endif
 
+/*
+** Linked list
+*/
+
 typedef struct		s_list
 {
 	void			*content;
@@ -106,6 +110,51 @@ void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstadd(t_list **alst, t_list *n);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+
+/*
+** Growing Array
+**
+** grow, append, and insert take a int *fail parameter. when a malloc call
+** fails, they will set *fail to 1 and return the original array instead of
+** returning NULL. users must inspect the value of *fail after every
+** invocation.
+**
+** No bounds checking is performed, or is on a best-effort basis. The caller
+** must pass correct indices to all functions.
+**
+** If item_cap is 0, the array is a view of other memory and cannot be grown.
+** functions returning a t_array* will fail. (ft_ary_viewof())
+*/
+
+typedef struct		s_array
+{
+	void			*ptr;
+	const size_t	item_size;
+	size_t			item_count;
+	size_t			item_cap;
+}					t_array;
+
+# define FT_ARY_DEFAULT_CAP 4
+# define FT_ARY_GROW_FACTOR 2
+
+t_array				*ft_ary_create(const size_t sizeof_item);
+t_array				ft_ary_viewof(void *ptr, size_t count,
+						const size_t sizeof_item);
+void				*ft_ary_get(t_array *ary, size_t idx);
+void				ft_ary_set(t_array *ary, void *item, size_t idx);
+t_array				*ft_ary_grow(t_array *ary, size_t min_item_cap, int *fail);
+t_array				*ft_ary_append(t_array *ary, void *item, int *fail);
+t_array				*ft_ary_insert(t_array *ary, void *item,
+						size_t idx, int *fail);
+t_array				*ft_ary_remove(t_array *ary, size_t idx);
+t_array				*ft_ary_clear(t_array *ary, int *fail);
+void				ft_ary_destroy(t_array **pary);
+void				ft_ary_swap(t_array *ary, size_t i, size_t j);
+
+/*
+** int	ft_ary_cmp(t_array *ary1, t_array *ary2);
+** void	ft_ary_sort(t_array *ary, int (*cmp)(void*, void*, size_t));
+*/
 
 /*
 ** Extra functions

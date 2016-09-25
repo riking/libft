@@ -6,7 +6,7 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/09 22:12:26 by kyork             #+#    #+#             */
-/*   Updated: 2016/09/22 16:08:25 by kyork            ###   ########.fr       */
+/*   Updated: 2016/09/24 16:56:28 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ char		*ft_itoa(int nbr)
 	char	*rp;
 
 	r = ft_strnew(11);
+	if (!r)
+		return (0);
 	rp = r;
 	nbr = handle_neg(nbr, &rp);
 	power_of_ten = 1000000000;
