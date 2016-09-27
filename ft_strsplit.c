@@ -6,14 +6,12 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/17 13:29:23 by kyork             #+#    #+#             */
-/*   Updated: 2016/09/23 20:43:04 by kyork            ###   ########.fr       */
+/*   Updated: 2016/09/27 12:13:12 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
-
-#define IS_SEP(x) (x == splitchr)
 
 static int	ws_split_wordcount(const char *str, char splitchr)
 {
@@ -24,10 +22,10 @@ static int	ws_split_wordcount(const char *str, char splitchr)
 	word_count = 0;
 	while (*str)
 	{
-		if (last_status != IS_SEP(*str))
+		if (last_status != (*str == splitchr))
 			if (last_status)
 				word_count++;
-		last_status = IS_SEP(*str);
+		last_status = (*str == splitchr);
 		str++;
 	}
 	return (word_count);
@@ -40,14 +38,14 @@ static char	*ft_strdup_space(const char *str, char splitchr)
 	char	*dest;
 
 	len = 0;
-	while (str[len] && !IS_SEP(str[len]))
+	while (str[len] && !(str[len] == splitchr))
 		len++;
 	dest = (char*)malloc(len + 1);
 	if (!dest)
 		return (0);
 	len = 0;
 	dest_idx = 0;
-	while (str[len] && !IS_SEP(str[len]))
+	while (str[len] && !(str[len] == splitchr))
 	{
 		dest[dest_idx++] = str[len++];
 	}
@@ -104,10 +102,10 @@ char		**ft_strsplit(const char *str, char splitchr)
 	word_count = 0;
 	while (*s)
 	{
-		if (last_status != IS_SEP(*s))
+		if (last_status != (*s == splitchr))
 			if (last_status && !ft_addtotab(tab, word_count++, s, splitchr))
 				return (0);
-		last_status = IS_SEP(*s);
+		last_status = (*s == splitchr);
 		s++;
 	}
 	tab[word_count] = 0;

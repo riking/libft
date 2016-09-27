@@ -6,7 +6,7 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 09:01:55 by kyork             #+#    #+#             */
-/*   Updated: 2016/09/22 12:12:11 by kyork            ###   ########.fr       */
+/*   Updated: 2016/09/27 12:11:40 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*ft_strncpy(char *dest, const char *src, size_t n)
 {
-	char			*d;
-	unsigned int	len;
+	char	*d;
+	size_t	len;
 
 	d = dest;
 	len = 0;

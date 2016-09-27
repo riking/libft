@@ -6,19 +6,11 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/21 09:29:10 by kyork             #+#    #+#             */
-/*   Updated: 2016/09/24 17:43:42 by kyork            ###   ########.fr       */
+/*   Updated: 2016/09/27 11:56:10 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-/*
-** Keep CPY_TYPE as char to trigger autovectorization (-O3)
-*/
-
-#define CPY_TYPE char
-#define CPY_WSIZE sizeof( CPY_TYPE )
-#define CPY_WMASK (CPY_WSIZE - 1)
 
 static void	ft_memmove_backwards(void *dst, const void *src, size_t length)
 {
@@ -26,12 +18,12 @@ static void	ft_memmove_backwards(void *dst, const void *src, size_t length)
 
 	src += length;
 	dst += length;
-	t = length / CPY_WSIZE;
+	t = length / 1;
 	while (t > 0)
 	{
-		src -= CPY_WSIZE;
-		dst -= CPY_WSIZE;
-		*(CPY_TYPE*)dst = *(CPY_TYPE*)src;
+		src -= 1;
+		dst -= 1;
+		*(char*)dst = *(char*)src;
 		t--;
 	}
 }
@@ -40,12 +32,12 @@ static void	ft_memmove_forwards(void *dst, const void *src, size_t length)
 {
 	size_t	t;
 
-	t = length / CPY_WSIZE;
+	t = length / 1;
 	while (t > 0)
 	{
-		*(CPY_TYPE*)dst = *(CPY_TYPE*)src;
-		src += CPY_WSIZE;
-		dst += CPY_WSIZE;
+		*(char*)dst = *(char*)src;
+		src += 1;
+		dst += 1;
 		t--;
 	}
 }
