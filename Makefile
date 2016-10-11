@@ -6,7 +6,7 @@
 #    By: kyork <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/08/22 09:02:39 by kyork             #+#    #+#              #
-#    Updated: 2016/10/11 11:36:20 by kyork            ###   ########.fr        #
+#    Updated: 2016/10/11 11:37:24 by kyork            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,8 +72,8 @@ TESTS		+= ary
 NAME		= libft.a
 CC			= gcc
 
-CFLAGS		+= -Wall -Wextra -Wfloat-equal -Wundef -Werror -Wint-to-pointer-cast -Wshadow -Wpointer-arith -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wstrict-overflow=5 -Wwrite-strings -Wconversion --pedantic-errors -std=gnu11
-LDFLAGS		+= -Wall -Wextra -Wfloat-equal -Wundef -Werror -Wint-to-pointer-cast -Wshadow -Wpointer-arith -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wstrict-overflow=5 -Wwrite-strings -Wconversion --pedantic-errors -std=gnu11
+CFLAGS		+= -Wall -Wextra -Wfloat-equal -Wundef -Werror -Wint-to-pointer-cast -Wshadow -Wpointer-arith -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wstrict-overflow=5 -Wwrite-strings -Wconversion --pedantic-errors
+LDFLAGS		+= -Wall -Wextra -Wfloat-equal -Wundef -Werror -Wint-to-pointer-cast -Wshadow -Wpointer-arith -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wstrict-overflow=5 -Wwrite-strings -Wconversion --pedantic-errors
 
 CFLAGS		+= -Iincludes/
 
