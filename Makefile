@@ -6,7 +6,7 @@
 #    By: kyork <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/08/22 09:02:39 by kyork             #+#    #+#              #
-#    Updated: 2016/09/24 17:38:59 by kyork            ###   ########.fr        #
+#    Updated: 2016/10/11 11:19:05 by kyork            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,34 +51,31 @@ TESTS		+= split strtrim
 # need tests
 FILENAMES	+= ft_memset.c ft_bzero.c ft_strnew.c ft_memalloc.c ft_strdup.c ft_memdel.c
 FILENAMES	+= ft_strdel.c ft_strclr.c ft_striter.c ft_striteri.c ft_strmap.c ft_strmapi.c
-TESTS		+=
+
+FILENAMES	+= ft_putchar_uni_fd.c
+TESTS		+= unicode
 
 TESTS		+= quentin yachaka
 
-ifndef SKIP_LIST
-	FILENAMES	+= ft_lstnew.c ft_lstdelone.c ft_lstdel.c ft_lstadd.c
-	FILENAMES	+= ft_lstiter.c ft_lstmap.c
-	TESTS		+= lstdel
-	CFLAGS		+= -DHAVE_LIST
-	LDFLAGS		+= -DHAVE_LIST
-endif
+FILENAMES	+= ft_lstnew.c ft_lstdelone.c ft_lstdel.c ft_lstadd.c
+FILENAMES	+= ft_lstiter.c ft_lstmap.c
+TESTS		+= lstdel
 
-ifndef SKIP_KANE
-	FILENAMES	+= ft_lstpop.c ft_memdup.c
+FILENAMES	+= ft_lstpop.c ft_memdup.c
 
-	FILENAMES	+= ft_ary_create.c ft_ary_viewof.c ft_ary_set.c ft_ary_get.c
-	FILENAMES	+= ft_ary_grow.c ft_ary_append.c ft_ary_insert.c ft_ary_remove.c
-	FILENAMES	+= ft_ary_clear.c ft_ary_destroy.c ft_ary_swap.c
-	FILENAMES	+=
-	TESTS		+= ary
-	CFLAGS		+= -DHAVE_KANE
-	LDFLAGS		+= -DHAVE_KANE
-endif
+FILENAMES	+= ft_ary_create.c ft_ary_viewof.c ft_ary_set.c ft_ary_get.c
+FILENAMES	+= ft_ary_grow.c ft_ary_append.c ft_ary_insert.c ft_ary_remove.c
+FILENAMES	+= ft_ary_clear.c ft_ary_destroy.c ft_ary_swap.c
+FILENAMES	+=
+TESTS		+= ary
 
 NAME		= libft.a
 CC			= gcc
-CFLAGS		+= -Wall -Wextra -Werror
-LDFLAGS		+= -Wall -Wextra -Werror
+
+CFLAGS		+= -Wall -Wextra -Wfloat-equal -Wundef -Werror -fverbose-asm -Wint-to-pointer-cast -Wshadow -Wpointer-arith -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wstrict-overflow=5 -Wwrite-strings -Wconversion --pedantic-errors -std=gnu11
+LDFLAGS		+= -Wall -Wextra -Wfloat-equal -Wundef -Werror -fverbose-asm -Wint-to-pointer-cast -Wshadow -Wpointer-arith -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wstrict-overflow=5 -Wwrite-strings -Wconversion --pedantic-errors -std=gnu11
+
+CFLAGS		+= -Iincludes/
 
 ifeq ($(DEBUG), 1)
 	#CFLAGS	+= -fsanitize=address

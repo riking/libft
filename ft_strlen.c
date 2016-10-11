@@ -6,7 +6,7 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/21 19:16:36 by kyork             #+#    #+#             */
-/*   Updated: 2016/09/21 19:17:23 by kyork            ###   ########.fr       */
+/*   Updated: 2016/10/04 22:20:38 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,5 @@ size_t	ft_strlen(const char *str)
 	s = str;
 	while (*s)
 		s++;
-	return (s - str);
+	return ((size_t)(s - str));
 }

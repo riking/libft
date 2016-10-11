@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ary_remove.c                                    :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/24 15:09:11 by kyork             #+#    #+#             */
-/*   Updated: 2016/10/01 15:35:33 by kyork            ###   ########.fr       */
+/*   Created: 2016/09/26 12:34:19 by kyork             #+#    #+#             */
+/*   Updated: 2016/10/11 10:44:26 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-int		ft_ary_remove(t_array *ary, size_t idx)
-{
-	if (ary->item_cap == 0)
-		return (FT_ARY_ERR_ISVIEW);
-	if (idx >= ary->item_count)
-		return (FT_ARY_ERR_BOUNDS);
-	ft_memmove(((char*)ary->ptr) + (idx * ary->item_size),
-				((char*)ary->ptr) + ((idx + 1) * ary->item_size),
-				(ary->item_count - 1 - idx) * ary->item_size);
-	ary->item_count -= 1;
-	return (FT_ARY_ERR_OKAY);
-}
+# include "libft/libft.h"
+
+typedef struct	s_gnl_fd {
+	int		fd;
+	ssize_t	nl_off;
+	t_array	chars;
+}				t_gnl_fd;
+
+typedef struct	s_gnlstate {
+	t_array fds;
+}				t_gnlstate;
+
+# ifndef BUFF_SIZE
+#  define BUFF_SIZE 32
+# endif
+
+int				get_next_line(const int fd, char **line);
+
+#endif

@@ -6,16 +6,16 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/17 13:29:23 by kyork             #+#    #+#             */
-/*   Updated: 2016/09/27 12:13:12 by kyork            ###   ########.fr       */
+/*   Updated: 2016/10/04 22:28:02 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-static int	ws_split_wordcount(const char *str, char splitchr)
+static size_t	ws_split_wordcount(const char *str, char splitchr)
 {
-	int		word_count;
+	size_t	word_count;
 	int		last_status;
 
 	last_status = 1;
@@ -31,9 +31,9 @@ static int	ws_split_wordcount(const char *str, char splitchr)
 	return (word_count);
 }
 
-static char	*ft_strdup_space(const char *str, char splitchr)
+static char		*ft_strdup_space(const char *str, char splitchr)
 {
-	int		len;
+	size_t	len;
 	int		dest_idx;
 	char	*dest;
 
@@ -53,7 +53,7 @@ static char	*ft_strdup_space(const char *str, char splitchr)
 	return (dest);
 }
 
-static void	ft_destroy_tab(char **tab)
+static void		ft_destroy_tab(char **tab)
 {
 	char **t;
 
@@ -65,9 +65,9 @@ static void	ft_destroy_tab(char **tab)
 	free(tab);
 }
 
-static int	ft_addtotab(
+static int		ft_addtotab(
 		char **tab,
-		int word_count,
+		size_t word_count,
 		const char *strptr,
 		char splitchr)
 {
@@ -84,9 +84,9 @@ static int	ft_addtotab(
 	return (1);
 }
 
-char		**ft_strsplit(const char *str, char splitchr)
+char			**ft_strsplit(const char *str, char splitchr)
 {
-	int			word_count;
+	size_t		word_count;
 	int			last_status;
 	const char	*s;
 	char		**tab;

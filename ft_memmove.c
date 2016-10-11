@@ -6,7 +6,7 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/21 09:29:10 by kyork             #+#    #+#             */
-/*   Updated: 2016/09/27 11:56:10 by kyork            ###   ########.fr       */
+/*   Updated: 2016/10/04 22:22:05 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,38 @@
 
 static void	ft_memmove_backwards(void *dst, const void *src, size_t length)
 {
-	size_t	t;
+	size_t		t;
+	char		*d;
+	char const	*s;
 
-	src += length;
-	dst += length;
+	d = dst;
+	s = src;
+	s += length;
+	d += length;
 	t = length / 1;
 	while (t > 0)
 	{
-		src -= 1;
-		dst -= 1;
-		*(char*)dst = *(char*)src;
+		s -= 1;
+		d -= 1;
+		*d = *s;
 		t--;
 	}
 }
 
 static void	ft_memmove_forwards(void *dst, const void *src, size_t length)
 {
-	size_t	t;
+	size_t		t;
+	char		*d;
+	char const	*s;
 
+	d = dst;
+	s = src;
 	t = length / 1;
 	while (t > 0)
 	{
-		*(char*)dst = *(char*)src;
-		src += 1;
-		dst += 1;
+		*d = *s;
+		s += 1;
+		d += 1;
 		t--;
 	}
 }

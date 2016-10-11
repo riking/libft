@@ -6,22 +6,20 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 14:54:39 by kyork             #+#    #+#             */
-/*   Updated: 2016/09/24 16:37:54 by kyork            ###   ########.fr       */
+/*   Updated: 2016/10/11 09:49:17 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-void	ft_ary_destroy(t_array **pary)
+void	ft_ary_destroy(t_array *ary)
 {
-	if (*pary)
+	if (ary)
 	{
-		if ((*pary)->item_cap == 0)
+		if (ary->item_cap == 0)
 			;
 		else
-			free((*pary)->ptr);
+			free(ary->ptr);
 	}
-	free(*pary);
-	*pary = 0;
 }

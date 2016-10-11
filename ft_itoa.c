@@ -6,7 +6,7 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/09 22:12:26 by kyork             #+#    #+#             */
-/*   Updated: 2016/09/24 16:56:28 by kyork            ###   ########.fr       */
+/*   Updated: 2016/10/04 22:19:29 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,10 @@ char		*ft_itoa(int nbr)
 		power_of_ten /= 10;
 	while (power_of_ten > 1)
 	{
-		*rp++ = ('0' + nbr / power_of_ten);
+		*rp++ = ('0' + (char)(nbr / power_of_ten));
 		nbr = nbr % power_of_ten;
 		power_of_ten /= 10;
 	}
-	*rp++ = ('0' + nbr / power_of_ten);
+	*rp++ = ('0' + (char)(nbr / power_of_ten));
 	return (r);
 }

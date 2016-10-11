@@ -6,7 +6,7 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/09 22:12:26 by kyork             #+#    #+#             */
-/*   Updated: 2016/09/21 14:51:16 by kyork            ###   ########.fr       */
+/*   Updated: 2016/10/04 22:19:11 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ void	ft_putnbr_fd(int nbr, int fd)
 		power_of_ten /= 10;
 	while (power_of_ten > 1)
 	{
-		ft_putchar_fd('0' + nbr / power_of_ten, fd);
+		ft_putchar_fd('0' + (char)(nbr / power_of_ten), fd);
 		nbr = nbr % power_of_ten;
 		power_of_ten /= 10;
 	}
-	ft_putchar_fd('0' + nbr / power_of_ten, fd);
+	ft_putchar_fd('0' + (char)(nbr / power_of_ten), fd);
 }

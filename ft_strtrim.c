@@ -6,7 +6,7 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/17 13:29:23 by kyork             #+#    #+#             */
-/*   Updated: 2016/09/23 22:27:18 by kyork            ###   ########.fr       */
+/*   Updated: 2016/10/04 22:29:05 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 
 #define IS_SEP(x) (x == ' ' || x == '\n' || x == '\t')
 
-static void	getbounds(const char **pstr, int *plen)
+static void	getbounds(const char **pstr, size_t *plen)
 {
 	const char	*str;
-	int			len;
+	size_t		len;
 
 	str = *pstr;
 	while (str[0] && IS_SEP(str[0]))
@@ -36,8 +36,8 @@ static void	getbounds(const char **pstr, int *plen)
 
 char		*ft_strtrim(const char *str)
 {
-	int		len;
-	int		i;
+	size_t	len;
+	size_t	i;
 	char	*dest;
 
 	if (!str)

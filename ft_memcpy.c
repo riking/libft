@@ -6,7 +6,7 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/21 09:29:10 by kyork             #+#    #+#             */
-/*   Updated: 2016/09/27 11:55:08 by kyork            ###   ########.fr       */
+/*   Updated: 2016/10/04 22:22:43 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,23 @@
 
 void	*ft_memcpy(void *dst, const void *src, size_t length)
 {
-	size_t	t;
-	void	*od;
+	size_t		t;
+	char		*d;
+	const char	*s;
 
 	if (length == 0)
 		return (dst);
-	od = dst;
-	src += length;
-	dst += length;
+	d = dst;
+	s = src;
+	s += length;
+	d += length;
 	t = length / 1;
 	while (t > 0)
 	{
-		src -= 1;
-		dst -= 1;
-		*(char*)dst = *(const char*)src;
+		s -= 1;
+		d -= 1;
+		*d = *s;
 		t--;
 	}
-	return (od);
+	return (dst);
 }

@@ -6,7 +6,7 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/11 12:41:31 by kyork             #+#    #+#             */
-/*   Updated: 2016/09/22 12:03:38 by kyork            ###   ########.fr       */
+/*   Updated: 2016/10/04 22:20:22 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,10 @@ int					ft_atoi(const char *str)
 	s = str;
 	while (s < end)
 	{
-		result = result * 10LL + (*s - '0');
+		result = result * 10LL + (unsigned long long)(*s - '0');
 		s++;
 	}
 	if ((end - str) > 19 || result >= 9223372036854775808uLL)
 		return ((sign == 1) ? -1 : 0);
-	return (sign * result);
+	return (sign * (int)result);
 }
