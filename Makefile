@@ -6,7 +6,7 @@
 #    By: kyork <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/08/22 09:02:39 by kyork             #+#    #+#              #
-#    Updated: 2016/10/11 11:19:05 by kyork            ###   ########.fr        #
+#    Updated: 2016/10/11 11:29:33 by kyork            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,7 +66,7 @@ FILENAMES	+= ft_lstpop.c ft_memdup.c
 FILENAMES	+= ft_ary_create.c ft_ary_viewof.c ft_ary_set.c ft_ary_get.c
 FILENAMES	+= ft_ary_grow.c ft_ary_append.c ft_ary_insert.c ft_ary_remove.c
 FILENAMES	+= ft_ary_clear.c ft_ary_destroy.c ft_ary_swap.c
-FILENAMES	+=
+FILENAMES	+= ft_ary_remove_mul.c ft_ary_destroy2.c
 TESTS		+= ary
 
 NAME		= libft.a
