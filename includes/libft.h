@@ -6,7 +6,7 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/18 11:01:11 by kyork             #+#    #+#             */
-/*   Updated: 2016/10/11 11:20:27 by kyork            ###   ########.fr       */
+/*   Updated: 2016/10/11 11:24:17 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -177,8 +177,7 @@ t_list				*ft_arytolst(const void *start, size_t content_size,
 
 # ifdef HAVE_ALLOCWRAP
 
-extern int		g_malloc_inject;
-extern int		g_alloc_count;
+#  include <ft_alloc_wrap.h>
 
 # endif
 

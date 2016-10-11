@@ -6,7 +6,7 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/18 22:04:36 by kyork             #+#    #+#             */
-/*   Updated: 2016/09/22 16:57:26 by kyork            ###   ########.fr       */
+/*   Updated: 2016/10/11 11:23:52 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #include <dlfcn.h>
 #include <stdio.h>
 #include <stdlib.h>
+
+#include <ft_alloc_wrap.h>
 
 int			g_alloc_count = 0;
 int			g_malloc_inject = -1;
