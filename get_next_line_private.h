@@ -6,14 +6,14 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/26 12:34:19 by kyork             #+#    #+#             */
-/*   Updated: 2016/10/11 10:44:26 by kyork            ###   ########.fr       */
+/*   Updated: 2016/10/21 20:40:02 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef GET_NEXT_LINE_PRIVATE_H
+# define GET_NEXT_LINE_PRIVATE_H
 
-# include "libft/libft.h"
+# include <libft.h>
 
 typedef struct	s_gnl_fd {
 	int		fd;

@@ -6,9 +6,13 @@
 #    By: kyork <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/08/22 09:02:39 by kyork             #+#    #+#              #
-#    Updated: 2016/10/11 11:37:24 by kyork            ###   ########.fr        #
+#    Updated: 2016/10/21 20:36:00 by kyork            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+PREFIX		= $(HOME)
+
+FILENAMES	+= get_next_line.c
 
 FILENAMES	+= ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c
 FILENAMES	+= ft_toupper.c ft_tolower.c
@@ -72,10 +76,15 @@ TESTS		+= ary
 NAME		= libft.a
 CC			= gcc
 
-CFLAGS		+= -Wall -Wextra -Wfloat-equal -Wundef -Werror -Wint-to-pointer-cast -Wshadow -Wpointer-arith -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wstrict-overflow=5 -Wwrite-strings -Wconversion --pedantic-errors
-LDFLAGS		+= -Wall -Wextra -Wfloat-equal -Wundef -Werror -Wint-to-pointer-cast -Wshadow -Wpointer-arith -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wstrict-overflow=5 -Wwrite-strings -Wconversion --pedantic-errors
+CFLAGS		+= -Wall -Wextra -Wfloat-equal -Wundef -Wint-to-pointer-cast -Wshadow -Wpointer-arith -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wstrict-overflow=5 -Wwrite-strings -Wconversion --pedantic-errors
+LDFLAGS		+= -Wall -Wextra -Wfloat-equal -Wundef -Wint-to-pointer-cast -Wshadow -Wpointer-arith -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wstrict-overflow=5 -Wwrite-strings -Wconversion --pedantic-errors
 
 CFLAGS		+= -Iincludes/
+
+ifndef NO_WERROR
+	CFLAGS += -Werror
+	LDFLAGS += -Werror
+endif
 
 ifeq ($(DEBUG), 1)
 	#CFLAGS	+= -fsanitize=address
@@ -123,6 +132,12 @@ flags:
 
 $(NAME): $(OBJS)
 	ar rcs $@ $^
+
+install: $(NAME)
+	mkdir -p $(PREFIX)/lib
+	ln -f -s $(NAME) $(PREFIX)/lib/$(NAME)
+	mkdir -p $(PREFIX)/include
+	ln -f -s includes/libft.h $(PREFIX)/include/libft.h
 
 build/%.o: %.c libft.h | build
 	$(CC) $(CFLAGS) -c $< -o $@

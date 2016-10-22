@@ -6,13 +6,12 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/26 12:34:56 by kyork             #+#    #+#             */
-/*   Updated: 2016/10/11 11:17:16 by kyork            ###   ########.fr       */
+/*   Updated: 2016/10/21 20:38:00 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
-#include <get_next_line.h>
-
+#include "get_next_line_private.h"
 #include <stdlib.h>
 #include <unistd.h>
 
@@ -45,7 +44,7 @@ static void		gnl_destroy(t_gnlstate *t, const int fd)
 	size_t		i;
 	t_gnl_fd	*s;
 
-	i = -1;
+	i = -1ULL;
 	s = NULL;
 	while (++i < t->fds.item_count)
 		if ((s = (t_gnl_fd*)ft_ary_get(&(t->fds), i))->fd == fd)
@@ -77,14 +76,14 @@ static ssize_t	gnl_read(t_gnl_fd *s)
 	{
 		if (s->chars.item_count > 0)
 		{
-			s->nl_off = s->chars.item_count;
+			s->nl_off = (ssize_t)s->chars.item_count;
 			((char*)s->chars.ptr)[s->chars.item_count++] = 0;
 			return (-2);
 		}
 		s->nl_off = -1;
 		return (0);
 	}
-	s->chars.item_count += read_ret;
+	s->chars.item_count += (size_t)read_ret;
 	return (1);
 }
 
@@ -93,7 +92,7 @@ static int		gnl_next(t_gnl_fd *s)
 	char	*c;
 	ssize_t	read_ret;
 
-	if (0 != ft_ary_remove_mul(&s->chars, 0, s->nl_off + 1))
+	if (0 != ft_ary_remove_mul(&s->chars, 0, (size_t)(s->nl_off + 1)))
 		return (-1);
 	while (1)
 	{
@@ -108,7 +107,7 @@ static int		gnl_next(t_gnl_fd *s)
 		}
 		read_ret = gnl_read(s);
 		if (read_ret == -1 || read_ret == 0)
-			return (read_ret);
+			return ((int)read_ret);
 		if (read_ret == -2)
 			return (1);
 	}
@@ -123,7 +122,7 @@ int				get_next_line(const int fd, char **line)
 
 	if (fd < 0 || !line)
 		return (-1);
-	i = -1;
+	i = -1ULL;
 	s = NULL;
 	while (++i < g_state.fds.item_count)
 		if ((s = (t_gnl_fd*)ft_ary_get(&g_state.fds, i))->fd == fd)
@@ -133,7 +132,7 @@ int				get_next_line(const int fd, char **line)
 			return (-1);
 	status = gnl_next(s);
 	if (status == 1)
-		*line = s->chars.ptr;
+		*line = ft_strdup(s->chars.ptr);
 	else
 	{
 		*line = 0;

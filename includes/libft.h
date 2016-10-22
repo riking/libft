@@ -6,7 +6,7 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/18 11:01:11 by kyork             #+#    #+#             */
-/*   Updated: 2016/10/11 11:24:17 by kyork            ###   ########.fr       */
+/*   Updated: 2016/10/21 20:38:49 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -174,6 +174,8 @@ void				*ft_memdup(const void *content, size_t size);
 void				ft_lstpop(t_list **alst, void (*del)(void *, size_t));
 t_list				*ft_arytolst(const void *start, size_t content_size,
 						size_t count);
+
+int					get_next_line(const int fd, char **line);
 
 # ifdef HAVE_ALLOCWRAP
 
