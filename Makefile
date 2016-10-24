@@ -6,7 +6,7 @@
 #    By: kyork <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/08/22 09:02:39 by kyork             #+#    #+#              #
-#    Updated: 2016/10/24 13:50:58 by kyork            ###   ########.fr        #
+#    Updated: 2016/10/24 15:11:41 by kyork            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,14 +69,16 @@ FILENAMES	+= ft_lstpop.c ft_memdup.c
 
 FILENAMES	+= ft_ary_create.c ft_ary_viewof.c ft_ary_set.c ft_ary_get.c
 FILENAMES	+= ft_ary_grow.c ft_ary_append.c ft_ary_insert.c ft_ary_remove.c
-FILENAMES	+= ft_ary_clear.c ft_ary_destroy.c ft_ary_swap.c
+FILENAMES	+= ft_ary_clear.c ft_ary_destroy.c ft_ary_swap.c ft_ary_sort.c
 FILENAMES	+= ft_ary_remove_mul.c ft_ary_destroy2.c
 TESTS		+= ary
 
 CC			= gcc
 
-CFLAGS		+= -Wall -Wextra -Wfloat-equal -Wundef -Wint-to-pointer-cast -Wshadow -Wpointer-arith -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wstrict-overflow=5 -Wwrite-strings -Wconversion --pedantic-errors
-LDFLAGS		+= -Wall -Wextra -Wfloat-equal -Wundef -Wint-to-pointer-cast -Wshadow -Wpointer-arith -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wstrict-overflow=5 -Wwrite-strings -Wconversion --pedantic-errors
+CFLAGS		+= -Wall -Wextra -Wmissing-prototypes
+LDFLAGS		+= -Wall -Wextra -Wmissing-prototypes
+#CFLAGS		+= -Wall -Wextra -Wfloat-equal -Wundef -Wint-to-pointer-cast -Wshadow -Wpointer-arith -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wstrict-overflow=5 -Wwrite-strings -Wconversion --pedantic-errors
+#LDFLAGS		+= -Wall -Wextra -Wfloat-equal -Wundef -Wint-to-pointer-cast -Wshadow -Wpointer-arith -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wstrict-overflow=5 -Wwrite-strings -Wconversion --pedantic-errors
 
 CFLAGS		+= -Iincludes/
 
