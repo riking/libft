@@ -6,7 +6,7 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/26 12:34:56 by kyork             #+#    #+#             */
-/*   Updated: 2016/10/21 20:38:00 by kyork            ###   ########.fr       */
+/*   Updated: 2016/10/24 16:36:05 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@
 static t_gnl_fd	*gnl_setup(t_gnlstate *t, const int fd)
 {
 	t_gnl_fd	*s;
-	t_array		*chars;
 
 	if (t->fds.item_count >= t->fds.item_cap || t->fds.item_cap == 1)
 		if (0 != ft_ary_grow(&(t->fds), MAX(4, t->fds.item_cap * 2)))
@@ -31,11 +30,9 @@ static t_gnl_fd	*gnl_setup(t_gnlstate *t, const int fd)
 	s = ft_ary_get(&(t->fds), t->fds.item_count++);
 	s->fd = fd;
 	s->nl_off = -1;
-	chars = ft_ary_create(sizeof(char));
-	if (!chars)
+	s->chars = ft_ary_create(sizeof(char));
+	if (!s->chars.ptr)
 		return (NULL);
-	s->chars = *chars;
-	free(chars);
 	return (s);
 }
 

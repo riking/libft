@@ -6,7 +6,7 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/18 11:01:11 by kyork             #+#    #+#             */
-/*   Updated: 2016/10/24 15:39:50 by kyork            ###   ########.fr       */
+/*   Updated: 2016/10/24 16:19:56 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,7 +146,7 @@ typedef struct		s_array
 # define FT_ARY_ERR_ISVIEW -2
 # define FT_ARY_ERR_BOUNDS -3
 
-t_array				*ft_ary_create(const size_t sizeof_item);
+t_array				ft_ary_create(const size_t sizeof_item);
 t_array				ft_ary_viewof(void *ptr, size_t count,
 						const size_t sizeof_item);
 void				*ft_ary_get(t_array *ary, size_t idx);
