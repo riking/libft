@@ -6,7 +6,7 @@
 #    By: kyork <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/08/22 09:02:39 by kyork             #+#    #+#              #
-#    Updated: 2016/10/24 15:56:55 by kyork            ###   ########.fr        #
+#    Updated: 2016/10/24 16:57:01 by kyork            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,6 +71,7 @@ FILENAMES	+= ft_ary_create.c ft_ary_viewof.c ft_ary_set.c ft_ary_get.c
 FILENAMES	+= ft_ary_grow.c ft_ary_append.c ft_ary_insert.c ft_ary_remove.c
 FILENAMES	+= ft_ary_clear.c ft_ary_destroy.c ft_ary_swap.c ft_ary_sort.c
 FILENAMES	+= ft_ary_remove_mul.c ft_ary_destroy2.c
+FILENAMES	+= ft_ary_foreach.c
 TESTS		+= ary
 
 CC			= gcc
