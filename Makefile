@@ -6,7 +6,7 @@
 #    By: kyork <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/08/22 09:02:39 by kyork             #+#    #+#              #
-#    Updated: 2016/10/21 20:36:00 by kyork            ###   ########.fr        #
+#    Updated: 2016/10/24 13:50:58 by kyork            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -73,7 +73,6 @@ FILENAMES	+= ft_ary_clear.c ft_ary_destroy.c ft_ary_swap.c
 FILENAMES	+= ft_ary_remove_mul.c ft_ary_destroy2.c
 TESTS		+= ary
 
-NAME		= libft.a
 CC			= gcc
 
 CFLAGS		+= -Wall -Wextra -Wfloat-equal -Wundef -Wint-to-pointer-cast -Wshadow -Wpointer-arith -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wstrict-overflow=5 -Wwrite-strings -Wconversion --pedantic-errors
@@ -111,33 +110,45 @@ OBJS	= $(addprefix build/, $(FILENAMES:.c=.o))
 TESTTARGETS	= $(addprefix test-, $(TESTS2))
 TESTBINS	= $(addprefix build/, $(TESTTARGETS))
 
+NAME		= libft.a
+
 .PHONY: all clean fclean re test
 
-all: $(NAME)
+all: $(NAME) libftprintf.a
 
 re: fclean all
 
 clean:
 	rm -rf build/
 	rm -f $(TESTBINS)
+	make -C ft_printf clean
 
 fclean: clean
 	rm -f $(NAME)
+	rm -f 
+	make -C ft_printf fclean
 
 build:
 	mkdir build/
 
-flags:
-	echo DEBUG SKIP_LIST SKIP_KANE ALLOCWRAP ONLY[test]
-
+####
+# Libraries
 $(NAME): $(OBJS)
 	ar rcs $@ $^
 
-install: $(NAME)
+libftprintf.a:
+	make -C ft_printf libftprintf.a
+	ln -f -s ft_printf/libftprintf.a
+
+####
+# Install
+install: all
 	mkdir -p $(PREFIX)/lib
 	ln -f -s $(NAME) $(PREFIX)/lib/$(NAME)
+	ln -f -s libftprintf.a $(PREFIX)/lib/libftprintf.a
 	mkdir -p $(PREFIX)/include
 	ln -f -s includes/libft.h $(PREFIX)/include/libft.h
+	ln -f -s includes/ft_printf.h $(PREFIX)/include/ft_printf.h
 
 build/%.o: %.c libft.h | build
 	$(CC) $(CFLAGS) -c $< -o $@
