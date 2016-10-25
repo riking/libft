@@ -6,7 +6,7 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/18 11:01:11 by kyork             #+#    #+#             */
-/*   Updated: 2016/10/24 16:56:48 by kyork            ###   ########.fr       */
+/*   Updated: 2016/10/24 20:37:22 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 # define LIBFT_H
 
 # include <string.h>
+
+# ifdef HAVE_ALLOCWRAP
+#  include <ft_alloc_wrap.h>
+# endif
 
 void				ft_putchar(char c);
 void				ft_putchar_uni(int cp);
@@ -177,11 +181,5 @@ t_list				*ft_arytolst(const void *start, size_t content_size,
 						size_t count);
 
 int					get_next_line(const int fd, char **line);
-
-# ifdef HAVE_ALLOCWRAP
-
-#  include <ft_alloc_wrap.h>
-
-# endif
 
 #endif

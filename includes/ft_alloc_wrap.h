@@ -6,12 +6,12 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/11 11:23:17 by kyork             #+#    #+#             */
-/*   Updated: 2016/10/11 11:23:37 by kyork            ###   ########.fr       */
+/*   Updated: 2016/10/24 20:37:17 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ALLOC_WRAP_H
-# define ALLOC_WRAP_H
+#ifndef FT_ALLOC_WRAP_H
+# define FT_ALLOC_WRAP_H
 
 extern int g_malloc_inject;
 extern int g_alloc_count;

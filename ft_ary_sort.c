@@ -6,13 +6,13 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/24 14:27:31 by kyork             #+#    #+#             */
-/*   Updated: 2016/10/24 20:32:56 by kyork            ###   ########.fr       */
+/*   Updated: 2016/10/24 20:36:01 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	sort(t_array *ary, size_t start, size_t len,
+static void		sort(t_array *ary, size_t start, size_t len,
 		int (*cmp)(void*, void*, size_t))
 {
 	size_t	lo_storage;
@@ -38,7 +38,7 @@ static void	sort(t_array *ary, size_t start, size_t len,
 	sort(ary, lo_storage + 1, len - (lo_storage - start) - 1, cmp);
 }
 
-void	ft_ary_sort(t_array *ary, int (*cmp)(void*, void*, size_t))
+void			ft_ary_sort(t_array *ary, int (*cmp)(void*, void*, size_t))
 {
 	sort(ary, 0, ary->item_count, cmp);
 }
