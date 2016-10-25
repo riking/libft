@@ -6,12 +6,11 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/24 14:27:31 by kyork             #+#    #+#             */
-/*   Updated: 2016/10/24 15:08:05 by kyork            ###   ########.fr       */
+/*   Updated: 2016/10/24 20:32:56 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <ft_printf.h>
 
 static void	sort(t_array *ary, size_t start, size_t len,
 		int (*cmp)(void*, void*, size_t))
@@ -20,7 +19,6 @@ static void	sort(t_array *ary, size_t start, size_t len,
 	size_t	idx;
 	size_t	pivot_idx;
 
-	ft_printf("sort from %ld to %ld\n", start, start + len);
 	if (len <= 1)
 		return ;
 	pivot_idx = start;
@@ -31,7 +29,6 @@ static void	sort(t_array *ary, size_t start, size_t len,
 		if (cmp(ft_ary_get(ary, idx), ft_ary_get(ary, pivot_idx),
 					ary->item_size) <= 0)
 		{
-			ft_printf("swapping %ld and %ld", idx, lo_storage + 1);
 			ft_ary_swap(ary, idx, ++lo_storage);
 		}
 		idx++;
