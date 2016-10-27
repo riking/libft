@@ -6,7 +6,7 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/18 11:01:11 by kyork             #+#    #+#             */
-/*   Updated: 2016/10/27 15:45:22 by kyork            ###   ########.fr       */
+/*   Updated: 2016/10/27 16:09:21 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,6 +146,7 @@ typedef struct		s_array
 	size_t			item_cap;
 }					t_array;
 
+# define FT_ARY_NULL ((t_array){0, 0, 0, 0})
 # define FT_ARY_DEFAULT_CAP 4
 # define FT_ARY_GROW_FACTOR 2
 # define FT_ARY_ERR_OKAY 0
