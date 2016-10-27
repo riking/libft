@@ -6,7 +6,7 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/18 11:01:11 by kyork             #+#    #+#             */
-/*   Updated: 2016/10/27 16:09:21 by kyork            ###   ########.fr       */
+/*   Updated: 2016/10/27 16:13:56 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,7 +158,7 @@ t_array				ft_ary_create(const size_t sizeof_item);
 t_array				ft_ary_viewof(void *ptr, size_t count,
 						const size_t sizeof_item);
 void				*ft_ary_get(t_array *ary, size_t idx);
-void				ft_ary_set(t_array *ary, void *item, size_t idx);
+int					ft_ary_set(t_array *ary, void *item, size_t idx);
 int					ft_ary_grow(t_array *ary, size_t min_item_cap);
 int					ft_ary_append(t_array *ary, void *item);
 int					ft_ary_insert(t_array *ary, void *item, size_t idx);
