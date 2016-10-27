@@ -6,7 +6,7 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/18 11:01:11 by kyork             #+#    #+#             */
-/*   Updated: 2016/10/24 20:37:22 by kyork            ###   ########.fr       */
+/*   Updated: 2016/10/27 15:45:22 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,9 @@ int					ft_isascii(int c);
 int					ft_isprint(int c);
 int					ft_toupper(int c);
 int					ft_tolower(int c);
+
+void				ft_set_progname(char *argv0);
+const char			*ft_progname(void);
 
 # ifndef IS_SPACE
 #  define IS_SPACE(x) (x==' '||x=='\n'||x=='\t'||x=='\r'||x=='\v'||x=='\f')

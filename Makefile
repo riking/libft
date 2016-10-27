@@ -6,13 +6,14 @@
 #    By: kyork <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/08/22 09:02:39 by kyork             #+#    #+#              #
-#    Updated: 2016/10/24 16:57:01 by kyork            ###   ########.fr        #
+#    Updated: 2016/10/27 15:48:56 by kyork            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 PREFIX		= $(HOME)
 
 FILENAMES	+= get_next_line.c
+FILENAMES	+= ft_progname.c
 
 FILENAMES	+= ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c
 FILENAMES	+= ft_toupper.c ft_tolower.c
