@@ -6,7 +6,7 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/18 12:31:03 by kyork             #+#    #+#             */
-/*   Updated: 2016/10/27 15:07:14 by kyork            ###   ########.fr       */
+/*   Updated: 2016/10/27 15:08:15 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ PRINTF_FUNC2	ft_asprintf(char **ret, const char *fmt, ...);
 int				ft_vprintf(const char *fmt, va_list args);
 int				ft_vdprintf(int fd, const char *fmt, va_list args);
 int				ft_vsnprintf(char *str, size_t size,
-int					const char *fmt, va_list args);
+					const char *fmt, va_list args);
 int				ft_vasprintf(char **ret, const char *fmt, va_list args);
 
 # endif
