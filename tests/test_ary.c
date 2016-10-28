@@ -6,7 +6,7 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 15:12:44 by kyork             #+#    #+#             */
-/*   Updated: 2016/10/24 15:09:05 by kyork            ###   ########.fr       */
+/*   Updated: 2016/10/27 18:43:50 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,12 @@ void	print_int_ary(t_array *ary)
 	ft_putchar('\n');
 }
 
-int		sort_ints(void *a, void *b, size_t size)
+int		sort_ints(void *a, void *b, size_t size, void *data)
 {
 	int int_a;
 	int int_b;
 
+	(void)data;
 	if (size != sizeof(int))
 		abort();
 	int_a = *(int*)a;
@@ -73,7 +74,8 @@ void	test1()
 	// append(1) 1
 
 	fail = 0;
-	ary = ft_ary_create(sizeof(int));
+	ary = malloc(sizeof(t_array));
+	*ary = ft_ary_create(sizeof(int));
 	ft_ary_append(ary, INT_VALUE(2));
 	print_int_ary(ary);
 	ft_ary_append(ary, INT_VALUE(4));
@@ -88,7 +90,7 @@ void	test1()
 	print_int_ary(ary);
 	ft_ary_insert(ary, INT_VALUE(1), 1);
 	print_int_ary(ary);
-	ft_ary_sort(ary, sort_ints);
+	ft_ary_sort(ary, sort_ints, NULL);
 	print_int_ary(ary);
 	ft_ary_remove(ary, 4);
 	print_int_ary(ary);
@@ -100,7 +102,7 @@ void	test1()
 	print_int_ary(ary);
 	ft_ary_set(ary, INT_VALUE(9), 3);
 	print_int_ary(ary);
-	ft_ary_sort(ary, sort_ints);
+	ft_ary_sort(ary, sort_ints, NULL);
 	print_int_ary(ary);
 	ft_ary_clear(ary);
 	print_int_ary(ary);
@@ -120,7 +122,8 @@ void	test2()
 
 	i = 0;
 	fail = 0;
-	ary = ft_ary_create(0);
+	ary = malloc(sizeof(t_array));
+	*ary = ft_ary_create(0);
 	while (i < 1000000)
 	{
 		ft_ary_append(ary, 0);
@@ -140,8 +143,26 @@ void	test2()
 	ft_ary_destroy2(&ary);
 }
 
+void	test3()
+{
+	t_array	ary;
+	int		item;
+	size_t	i;
+
+	ary = ft_ary_create(sizeof(int));
+	while (i < 10)
+	{
+		ft_ary_append(&ary, INT_VALUE(rand() % 100000));
+		i++;
+	}
+	ft_ary_sort(&ary, sort_ints, NULL);
+	print_int_ary(&ary);
+	ft_ary_destroy(&ary);
+}
+
 int 	main(void)
 {
 	test1();
 	test2();
+	test3();
 }
