@@ -6,7 +6,7 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/25 11:31:06 by kyork             #+#    #+#             */
-/*   Updated: 2016/10/27 15:44:31 by kyork            ###   ########.fr       */
+/*   Updated: 2016/11/09 22:05:53 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,17 @@ static char	*g_progname;
 void		ft_set_progname(char *argv0)
 {
 	char *slash;
+	char *av0;
 
 	slash = 0;
-	while (*argv0)
+	av0 = argv0;
+	while (*av0)
 	{
-		if (*argv0 == '/')
+		if (*av0 == '/')
 		{
-			slash = argv0;
+			slash = av0;
 		}
-		argv0++;
+		av0++;
 	}
 	if (slash)
 		g_progname = slash + 1;
