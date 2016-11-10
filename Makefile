@@ -6,7 +6,7 @@
 #    By: kyork <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/08/22 09:02:39 by kyork             #+#    #+#              #
-#    Updated: 2016/11/10 12:03:42 by kyork            ###   ########.fr        #
+#    Updated: 2016/11/10 12:10:44 by kyork            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -154,11 +154,15 @@ ft_printf/libftprintf.a:
 # Install
 install: all
 	mkdir -p $(PREFIX)/lib
-	ln -f -s $(NAME) $(PREFIX)/lib/$(NAME)
-	ln -f -s libftprintf.a $(PREFIX)/lib/libftprintf.a
+	ln -f $(NAME) $(PREFIX)/lib/$(NAME)
 	mkdir -p $(PREFIX)/include
-	ln -f -s includes/libft.h $(PREFIX)/include/libft.h
-	ln -f -s includes/ft_printf.h $(PREFIX)/include/ft_printf.h
+	ln -f includes/libft.h $(PREFIX)/include/libft.h
+	ln -f includes/ft_printf.h $(PREFIX)/include/ft_printf.h
+
+install_clean:
+	rm -f $(PREFIX)/lib/$(NAME)
+	rm -f $(PREFIX)/include/libft.h
+	rm -f $(PREFIX)/include/ft_printf.h
 
 build/libft_%.o: %.c libft.h | build
 	$(CC) $(CFLAGS) -c $< -o $@
