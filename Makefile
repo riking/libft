@@ -6,7 +6,7 @@
 #    By: kyork <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/08/22 09:02:39 by kyork             #+#    #+#              #
-#    Updated: 2016/11/10 13:42:46 by kyork            ###   ########.fr        #
+#    Updated: 2016/11/10 13:43:53 by kyork            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -120,8 +120,6 @@ NAME		= libft.a
 
 all: $(NAME) libftprintf.a
 
-re: fclean all
-
 clean:
 	rm -rf build/
 	rm -f $(TESTBINS)
@@ -134,6 +132,9 @@ fclean: clean
 	rm -f libftprintf.a
 	make -C ft_printf fclean
 	@printf "\e[33m\e[1m[FCLEAN]\e[m $$(basename $$(pwd))\n"
+
+re: fclean
+	$(MAKE) all
 
 build:
 	mkdir build/
