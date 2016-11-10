@@ -1,25 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_progname.c                                      :+:      :+:    :+:   */
+/*   ft_basename.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/25 11:31:06 by kyork             #+#    #+#             */
-/*   Updated: 2016/11/10 13:40:57 by kyork            ###   ########.fr       */
+/*   Created: 2016/11/10 13:39:16 by kyork             #+#    #+#             */
+/*   Updated: 2016/11/10 13:40:16 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
-static char	*g_progname;
-
-void		ft_set_progname(char *argv0)
+char		*ft_basename(char *path)
 {
-	g_progname = ft_basename(argv0);
-}
+	char *slash;
+	char *p;
 
-const char	*ft_progname(void)
-{
-	return (g_progname);
+	slash = 0;
+	p = path;
+	while (*p)
+	{
+		if (*p == '/')
+		{
+			slash = p;
+		}
+		p++;
+	}
+	if (slash)
+		return (slash + 1);
+	else
+		return (path);
 }
