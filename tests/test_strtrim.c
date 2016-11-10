@@ -6,7 +6,7 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/22 19:01:07 by kyork             #+#    #+#             */
-/*   Updated: 2016/09/23 11:36:32 by kyork            ###   ########.fr       */
+/*   Updated: 2016/11/10 12:23:36 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,25 @@ int			main(void)
 	s = ft_strtrim("  \tHello, World!\n");
 	if (0 != ft_strcmp(s, "Hello, World!"))
 	{
-		ft_putstr("FAIL ");
+		ft_putstr("FAIL [");
 		ft_putstr(s);
-		ft_putstr("\n");
+		ft_putstr("]\n");
 	}
 	free(s);
 	s = ft_strtrim("at edge");
 	if (0 != ft_strcmp(s, "at edge"))
 	{
-		ft_putstr("FAIL ");
+		ft_putstr("FAIL [");
 		ft_putstr(s);
-		ft_putstr("\n");
+		ft_putstr("]\n");
+	}
+	free(s);
+	s = ft_strtrim("   \n\t \n");
+	if (0 != ft_strcmp(s, ""))
+	{
+		ft_putstr("FAIL empty string: [");
+		ft_putstr(s);
+		ft_putstr("]\n");
 	}
 	free(s);
 

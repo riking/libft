@@ -6,7 +6,7 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/17 13:29:23 by kyork             #+#    #+#             */
-/*   Updated: 2016/10/04 22:29:05 by kyork            ###   ########.fr       */
+/*   Updated: 2016/11/10 12:24:16 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,23 @@
 static void	getbounds(const char **pstr, size_t *plen)
 {
 	const char	*str;
-	size_t		len;
+	ssize_t		len;
 
 	str = *pstr;
 	while (str[0] && IS_SEP(str[0]))
 		str++;
-	len = ft_strlen(str);
-	while (len-- > 0)
+	*pstr = str;
+	len = (ft_strlen(str));
+	while (len > 0)
+	{
+		len--;
 		if (!IS_SEP(str[len]))
 		{
-			len++;
-			break ;
+			*plen = len + 1;
+			return ;
 		}
+	}
 	*plen = len;
-	*pstr = str;
 }
 
 char		*ft_strtrim(const char *str)
