@@ -6,7 +6,7 @@
 #    By: kyork <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/08/22 09:02:39 by kyork             #+#    #+#              #
-#    Updated: 2016/11/10 12:10:44 by kyork            ###   ########.fr        #
+#    Updated: 2016/11/10 12:13:39 by kyork            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -126,12 +126,14 @@ clean:
 	rm -rf build/
 	rm -f $(TESTBINS)
 	make -C ft_printf clean
+	@printf "\e[33m\e[1m[CLEAN]\e[m $$(basename $$(pwd))\n"
 
 fclean: clean
 	rm -f $(NAME)
 	rm -f libftfuncs.a
 	rm -f libftprintf.a
 	make -C ft_printf fclean
+	@printf "\e[33m\e[1m[FCLEAN]\e[m $$(basename $$(pwd))\n"
 
 build:
 	mkdir build/
@@ -140,9 +142,11 @@ build:
 # Libraries
 $(NAME): libftfuncs.a libftprintf.a
 	libtool -static -o $@ $^
+	@printf "\e[32m\e[1m[OK]\e[m $$(basename $@)\n"
 
 libftfuncs.a: $(OBJS)
 	ar rcs $@ $(OBJS)
+	@printf "\e[32m\e[1m[OK]\e[m $$(basename $@)\n"
 
 libftprintf.a: ft_printf/libftprintf.a
 	ln -f -s ft_printf/libftprintf.a

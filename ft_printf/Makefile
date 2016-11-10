@@ -6,7 +6,7 @@
 #    By: kyork <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/09 19:11:26 by kyork             #+#    #+#              #
-#    Updated: 2016/11/10 12:01:06 by kyork            ###   ########.fr        #
+#    Updated: 2016/11/10 12:14:24 by kyork            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,12 +37,15 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
+	@printf "\e[32m\e[1m[OK]\e[m $$(basename $@)\n"
 
 clean:
 	rm -rf build
+	@printf "\e[33m\e[1m[CLEAN]\e[m $$(basename $$(pwd))\n"
 
 fclean: clean
 	rm -f $(NAME)
+	@printf "\e[33m\e[1m[FCLEAN]\e[m $$(basename $$(pwd))\n"
 
 re: fclean all
 
