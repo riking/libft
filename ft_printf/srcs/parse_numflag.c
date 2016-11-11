@@ -6,7 +6,7 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/21 16:05:02 by kyork             #+#    #+#             */
-/*   Updated: 2016/10/21 19:56:33 by kyork            ###   ########.fr       */
+/*   Updated: 2016/10/24 08:27:35 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ static void			star_arg(
 			parse->flags |= PF_FLAG_ALIGN_LEFT;
 		else
 		{
+			parse->precis = 0;
 			parse->flags &= ~PF_FLAG_HAVE_PRECIS;
 			return ;
 		}

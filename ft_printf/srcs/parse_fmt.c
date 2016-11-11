@@ -6,7 +6,7 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/11 11:43:04 by kyork             #+#    #+#             */
-/*   Updated: 2016/10/22 12:08:40 by kyork            ###   ########.fr       */
+/*   Updated: 2016/11/08 15:05:43 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <stdint.h>
 #include <stdlib.h>
 
-static const t_specifiers		g_specifiers[] = {
+static const t_specifiers	g_specifiers[] = {
 	{ft_printf_percent, '%', false},
 
 	{ft_printf_d, 'd', false},
@@ -37,7 +37,7 @@ static const t_specifiers		g_specifiers[] = {
 	{ft_printf_s, 'S', true},
 };
 
-static const char			*g_specifiers_match = "%" "diDuUoOxXpcCsS";
+static const char			*g_specifiers_match = "%" "diDuUoO" "xXpcCsS";
 
 static const t_modifiers	g_modifiers[] = {
 	{PF_SIZE_H, sizeof(short), 'h', DOUBLEFLAG_CAN},

@@ -6,7 +6,7 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/18 14:14:26 by kyork             #+#    #+#             */
-/*   Updated: 2016/10/19 17:54:27 by kyork            ###   ########.fr       */
+/*   Updated: 2016/11/10 20:50:16 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,14 @@ int		ft_printf_printer_fd(t_printf_parse *flags, char c)
 
 	if (flags->used_size + 1 < flags->max_print)
 	{
-		tmp = write(flags->print_data.fd.fd, &c, 1);
-		if (tmp < 0)
-			return (-1);
+		flags->print_data.fd.buf[flags->print_data.fd.used_buf++] = c;
+		if (flags->print_data.fd.used_buf == FD_BUF_SIZE)
+		{
+			tmp = write(flags->print_data.fd.fd, flags->print_data.fd.buf,
+					FD_BUF_SIZE);
+			if (tmp < 0)
+				return (-1);
+		}
 		flags->used_size++;
 		return (1);
 	}

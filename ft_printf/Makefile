@@ -6,7 +6,7 @@
 #    By: kyork <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/09 19:11:26 by kyork             #+#    #+#              #
-#    Updated: 2016/11/10 13:44:06 by kyork            ###   ########.fr        #
+#    Updated: 2016/11/10 20:54:31 by kyork            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,9 +56,17 @@ build:
 build/ft_printf_%.o: srcs/%.c srcs/*.h | build
 	$(CC) $(CFLAGS) -c -o $@ $<
 
-smalltest: tests/small_test.c $(NAME) | build
-	$(CC) $(CFLAGS) -c $< -o build/small_test.o
+build/small_test.o: tests/small_test.c | build
+	$(CC) $(CFLAGS) -c $< -o $@
+
+smalltest: build/small_test.o $(NAME) | build
 	$(CC) $(LDFLAGS) -o $@ build/small_test.o -L. -lftprintf
+
+build/nm_test.o: tests/nm_test.c srcs/*.h | build
+	$(CC) $(CFLAGS) -c -o $@ $<
+
+nm_test: build/nm_test.o $(NAME)
+	$(CC) $(LDFLAGS) -o $@ build/nm_test.o -L. -lftprintf
 
 build/fuzz_main.o: tests/fuzz_main.c srcs/*.h | build
 	$(CC) $(CFLAGS) -c $< -o build/small_test.o -I ../libft/includes -I $(DYNCALL_PATH)/include

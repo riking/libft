@@ -6,7 +6,7 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/11 12:03:27 by kyork             #+#    #+#             */
-/*   Updated: 2016/10/21 15:42:16 by kyork            ###   ########.fr       */
+/*   Updated: 2016/10/24 08:27:12 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ int				ft_printf_digout(t_printf_parse *parse, char *s, size_t strlen)
 		COUNT(count, parse->printer(parse, '0'));
 	if (parse->ox)
 		COUNT(count, parse->printer(parse, parse->ox));
-	if ((parse->flags & (PF_FLAG_ALIGN_LEFT | PF_FLAG_ZERO_PAD))
-			== PF_FLAG_ZERO_PAD)
+	if (!HAVE_FLAG(parse, PF_FLAG_ALIGN_LEFT) &&
+			HAVE_FLAG(parse, PF_FLAG_ZERO_PAD))
 		COUNT(count, padding(parse, parse->min_width - realsz, '0'));
 	i = 0;
 	while (i < strlen)

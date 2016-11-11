@@ -6,7 +6,7 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/09 19:34:05 by kyork             #+#    #+#             */
-/*   Updated: 2016/10/22 12:08:33 by kyork            ###   ########.fr       */
+/*   Updated: 2016/11/10 20:48:28 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,13 @@
 # define MAX(a, b) ((a) < (b) ? (b) : (a))
 # define ARRAYLEN(ary) ((ssize_t)(sizeof(ary) / sizeof(*ary)))
 
+# define FD_BUF_SIZE 128
+
 typedef struct		s_printer_data_fd
 {
 	int				fd;
+	char			*buf;
+	size_t			used_buf;
 }					t_printer_data_fd;
 
 typedef struct		s_printer_data_str
