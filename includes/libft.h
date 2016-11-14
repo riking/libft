@@ -6,7 +6,7 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/18 11:01:11 by kyork             #+#    #+#             */
-/*   Updated: 2016/11/10 13:40:39 by kyork            ###   ########.fr       */
+/*   Updated: 2016/11/14 14:09:11 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -172,7 +172,8 @@ void				ft_ary_destroy(t_array *ary);
 void				ft_ary_destroy2(t_array **pary);
 void				ft_ary_swap(t_array *ary, size_t i, size_t j);
 
-typedef int			(*t_sortfunc)(void *left, void *right, size_t size, void *data);
+typedef int			(*t_sortfunc)(void *left, void *right, size_t size,
+						void *data);
 void				ft_ary_sort(t_array *ary, t_sortfunc cmp, void *cmp_data);
 
 /*
