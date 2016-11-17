@@ -6,7 +6,7 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/18 11:01:11 by kyork             #+#    #+#             */
-/*   Updated: 2016/11/14 14:09:11 by kyork            ###   ########.fr       */
+/*   Updated: 2016/11/16 16:43:29 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # ifdef HAVE_ALLOCWRAP
 #  include <ft_alloc_wrap.h>
 # endif
+
+# define ARRAYLEN(a) ((ssize_t)(sizeof(a) / sizeof(*a)))
 
 void				ft_putchar(char c);
 void				ft_putchar_uni(int cp);
