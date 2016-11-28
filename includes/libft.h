@@ -6,7 +6,7 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/18 11:01:11 by kyork             #+#    #+#             */
-/*   Updated: 2016/11/27 21:16:27 by kyork            ###   ########.fr       */
+/*   Updated: 2016/11/28 12:50:15 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,6 +168,7 @@ int					ft_ary_set(t_array *ary, void *item, size_t idx);
 int					ft_ary_grow(t_array *ary, size_t min_item_cap);
 int					ft_ary_append(t_array *ary, void *item);
 int					ft_ary_insert(t_array *ary, void *item, size_t idx);
+int					ft_ary_poplast(t_array *ary);
 int					ft_ary_remove(t_array *ary, size_t idx);
 int					ft_ary_remove_mul(t_array *ary, size_t idx, size_t count);
 int					ft_ary_clear(t_array *ary);
