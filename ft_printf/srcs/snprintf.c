@@ -6,7 +6,7 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/09 19:23:04 by kyork             #+#    #+#             */
-/*   Updated: 2016/10/21 15:42:35 by kyork            ###   ########.fr       */
+/*   Updated: 2016/11/27 17:09:21 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,6 @@ int			ft_snprintf(char *str, size_t max, const char *fmt, ...)
 	return (len);
 }
 
-/*
-** TODO more tests of this
-*/
-
 int			ft_vsnprintf(char *str, size_t max, const char *fmt, va_list args)
 {
 	int				count;
@@ -35,6 +31,7 @@ int			ft_vsnprintf(char *str, size_t max, const char *fmt, va_list args)
 	ft_printf_setup_parse(&parse, &ft_printf_printer_str, max);
 	parse.print_data.str.str = str;
 	count = (int)ft_do_printf(fmt, args, &parse);
-	str[parse.used_size] = 0;
+	if (str)
+		str[parse.used_size] = 0;
 	return (count);
 }
