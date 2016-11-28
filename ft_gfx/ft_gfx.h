@@ -6,7 +6,7 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/15 22:13:45 by kyork             #+#    #+#             */
-/*   Updated: 2016/11/15 22:47:53 by kyork            ###   ########.fr       */
+/*   Updated: 2016/11/15 22:53:44 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@ typedef float		t_mat[4][4];
 typedef float		t_vec2[2];
 typedef float		t_vec3[3];
 
-typedef struct		t_img {
+typedef struct		s_img {
 	void			*mlx_img;
 	char			*buf;
 	int				bits_per_pixel;
 	int				size_line;
 	int				endian;
 	int				num_lines;
-}
+}					t_img;
 
 # define VEC_X 0
 # define VEC_Y 1

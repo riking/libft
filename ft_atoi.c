@@ -6,15 +6,13 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/11 12:41:31 by kyork             #+#    #+#             */
-/*   Updated: 2016/10/04 22:20:22 by kyork            ###   ########.fr       */
+/*   Updated: 2016/11/27 16:00:52 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-/*
-** man isspace
-*/
+#include <errno.h>
+#include <limits.h>
 
 static const char	*end_of_num(const char **str)
 {
@@ -49,12 +47,11 @@ int					ft_atoi(const char *str)
 	}
 	end = end_of_num(&str);
 	result = 0;
-	s = str;
-	while (s < end)
-	{
+	s = str - 1;
+	while (++s < end)
 		result = result * 10LL + (unsigned long long)(*s - '0');
-		s++;
-	}
+	if (result > INT_MAX || (end - str) > 19)
+		errno = ERANGE;
 	if ((end - str) > 19 || result >= 9223372036854775808uLL)
 		return ((sign == 1) ? -1 : 0);
 	return (sign * (int)result);
