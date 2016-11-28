@@ -6,7 +6,7 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/18 11:01:11 by kyork             #+#    #+#             */
-/*   Updated: 2016/11/27 16:54:51 by kyork            ###   ########.fr       */
+/*   Updated: 2016/11/27 16:55:39 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # endif
 
 # define ARRAYLEN(a) ((ssize_t)(sizeof(a) / sizeof(*a)))
-# define MAX(a, b) ({typeof(a)_a=(a);typeof(b)_b=(b);(_a<_b)?_b:_a})
+# define MAX(a, b) ({typeof(a)_a=(a);typeof(b)_b=(b);(_a<_b)?_b:_a;})
 
 void				ft_putchar(char c);
 void				ft_putchar_uni(int cp);
