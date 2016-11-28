@@ -6,7 +6,7 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/11 12:41:31 by kyork             #+#    #+#             */
-/*   Updated: 2016/11/27 16:00:52 by kyork            ###   ########.fr       */
+/*   Updated: 2016/11/27 16:21:33 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,8 @@ int					ft_atoi(const char *str)
 	s = str - 1;
 	while (++s < end)
 		result = result * 10LL + (unsigned long long)(*s - '0');
-	if (result > INT_MAX || (end - str) > 19)
+	if (result > 2147483648LL || (sign == 1 && result == 2147483648LL)
+			|| (end - str) > 19)
 		errno = ERANGE;
 	if ((end - str) > 19 || result >= 9223372036854775808uLL)
 		return ((sign == 1) ? -1 : 0);
