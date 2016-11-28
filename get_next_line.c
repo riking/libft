@@ -6,7 +6,7 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/26 12:34:56 by kyork             #+#    #+#             */
-/*   Updated: 2016/10/24 16:36:05 by kyork            ###   ########.fr       */
+/*   Updated: 2016/11/27 17:07:05 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-#define MAX(a, b) ( (a) < (b) ? (b) : (a) )
 #define GRSZ_A(s) ((s)->chars.item_count + BUFF_SIZE)
 #define GRSZ_B(s) ((s)->chars.item_cap * 2)
 #define GROW_SIZE(s) MAX(GRSZ_A(s), GRSZ_B(s))
@@ -25,7 +24,7 @@ static t_gnl_fd	*gnl_setup(t_gnlstate *t, const int fd)
 	t_gnl_fd	*s;
 
 	if (t->fds.item_count >= t->fds.item_cap || t->fds.item_cap == 1)
-		if (0 != ft_ary_grow(&(t->fds), MAX(4, t->fds.item_cap * 2)))
+		if (0 != ft_ary_grow(&(t->fds), MAX(4UL, t->fds.item_cap * 2)))
 			return (NULL);
 	s = ft_ary_get(&(t->fds), t->fds.item_count++);
 	s->fd = fd;
