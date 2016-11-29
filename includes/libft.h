@@ -6,7 +6,7 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/18 11:01:11 by kyork             #+#    #+#             */
-/*   Updated: 2016/11/28 12:50:15 by kyork            ###   ########.fr       */
+/*   Updated: 2016/11/28 16:53:37 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,10 +143,16 @@ t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 ** Functions changing the size will fail (grow, append, remove).
 */
 
+# ifdef __APPLE__
+#  define CONSTSIZET const size_t
+# else
+#  define CONSTSIZET size_t
+# endif
+
 typedef struct		s_array
 {
 	void			*ptr;
-	const size_t	item_size;
+	CONSTSIZET		item_size;
 	size_t			item_count;
 	size_t			item_cap;
 }					t_array;
