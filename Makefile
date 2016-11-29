@@ -6,7 +6,7 @@
 #    By: kyork <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/08/22 09:02:39 by kyork             #+#    #+#              #
-#    Updated: 2016/11/28 12:51:40 by kyork            ###   ########.fr        #
+#    Updated: 2016/11/28 16:59:20 by kyork            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -142,8 +142,18 @@ build:
 ####
 # Libraries
 $(NAME): libftfuncs.a libftprintf.a
-	libtool -static -o $@ $^
+	libtool -static -o $@ $^ || $(MAKE) libft.a_linux
 	@printf "\e[32m\e[1m[OK]\e[m $$(basename $@)\n"
+
+.PHONY: libft.a_linux
+libft.a_linux:
+	echo create libft.a > .script
+	echo addlib libftfuncs.a >> .script
+	echo addlib libftprintf.a >> .script
+	echo save >> .script
+	echo end >> .script
+	ar -M <.script
+	rm .script
 
 libftfuncs.a: build $(OBJS)
 	ar rcs $@ $(OBJS)
