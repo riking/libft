@@ -6,13 +6,14 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 10:04:56 by kyork             #+#    #+#             */
-/*   Updated: 2016/09/21 18:56:48 by kyork            ###   ########.fr       */
+/*   Updated: 2016/12/05 15:27:59 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
 #include <stdio.h>
+
+#define VERBOSE 0
 
 typedef struct	s_testcase{
 	char		*s1;
@@ -35,6 +36,7 @@ t_testcase		g_testcases[] = {
 	{"The rain in Spain", "The rain in sPain", 0},
 	{"The rain in Spain", "The rain in sPain", 12},
 	{"The rain in Spain", "The rain in sPain", 13},
+	{"The Rain in Spain", "The Rain in Spain", 13},
 };
 
 int				main(void)
