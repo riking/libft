@@ -6,7 +6,7 @@
 #    By: kyork <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/08/22 09:02:39 by kyork             #+#    #+#              #
-#    Updated: 2016/11/28 16:59:20 by kyork            ###   ########.fr        #
+#    Updated: 2017/01/12 15:50:20 by kyork            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,7 +50,7 @@ TESTS		+= strjoin
 FILENAMES	+= ft_strsub.c
 TESTS		+= strsub
 
-FILENAMES	+= ft_strsplit.c ft_strtrim.c
+FILENAMES	+= ft_strsplit.c ft_strtrim.c ft_strtab_destroy.c
 TESTS		+= split strtrim
 
 # need tests
