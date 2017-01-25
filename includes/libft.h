@@ -6,7 +6,7 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/18 11:01:11 by kyork             #+#    #+#             */
-/*   Updated: 2017/01/12 15:49:51 by kyork            ###   ########.fr       */
+/*   Updated: 2017/01/25 14:42:25 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -198,5 +198,11 @@ t_list				*ft_arytolst(const void *start, size_t content_size,
 						size_t count);
 
 int					get_next_line(const int fd, char **line);
+
+/*
+** gnc returns -1 on error and EOF.
+** on EOF, errno will be set to 0. check errno to distinguish
+*/
+int					get_next_char(const int fd);
 
 #endif

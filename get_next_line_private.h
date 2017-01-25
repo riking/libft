@@ -6,7 +6,7 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/26 12:34:19 by kyork             #+#    #+#             */
-/*   Updated: 2016/10/21 21:01:34 by kyork            ###   ########.fr       */
+/*   Updated: 2017/01/25 14:38:29 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,26 @@
 # include <libft.h>
 # include <sys/types.h>
 
-typedef struct	s_gnl_fd {
+typedef struct		s_gnl_fd {
 	int		fd;
 	ssize_t	nl_off;
 	t_array	chars;
-}				t_gnl_fd;
+}					t_gnl_fd;
 
-typedef struct	s_gnlstate {
+typedef struct		s_gnlstate {
 	t_array fds;
-}				t_gnlstate;
+}					t_gnlstate;
 
 # ifndef BUFF_SIZE
 #  define BUFF_SIZE 32
 # endif
 
-int				get_next_line(const int fd, char **line);
+extern t_gnlstate	g_bufio_state;
+
+int					get_next_line(const int fd, char **line);
+int					get_next_char(const int fd);
+
+t_gnl_fd			*gnl_setup(t_gnlstate *t, const int fd);
+ssize_t				gnl_read(t_gnl_fd *s);
 
 #endif

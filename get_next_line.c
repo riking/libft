@@ -6,7 +6,7 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/26 12:34:56 by kyork             #+#    #+#             */
-/*   Updated: 2016/11/27 17:07:05 by kyork            ###   ########.fr       */
+/*   Updated: 2017/01/25 14:37:46 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 #define GRSZ_B(s) ((s)->chars.item_cap * 2)
 #define GROW_SIZE(s) MAX(GRSZ_A(s), GRSZ_B(s))
 
-static t_gnl_fd	*gnl_setup(t_gnlstate *t, const int fd)
+t_gnl_fd		*gnl_setup(t_gnlstate *t, const int fd)
 {
 	t_gnl_fd	*s;
 
@@ -55,7 +55,7 @@ static void		gnl_destroy(t_gnlstate *t, const int fd)
 	ft_ary_remove(&(t->fds), i);
 }
 
-static ssize_t	gnl_read(t_gnl_fd *s)
+ssize_t			gnl_read(t_gnl_fd *s)
 {
 	ssize_t read_ret;
 
@@ -108,23 +108,24 @@ static int		gnl_next(t_gnl_fd *s)
 			return (1);
 	}
 }
+	
+t_gnlstate		g_bufio_state = {{0, sizeof(t_gnl_fd), 0, 1}};
 
 int				get_next_line(const int fd, char **line)
 {
-	static t_gnlstate	g_state = {{0, sizeof(t_gnl_fd), 0, 1}};
-	t_gnl_fd			*s;
-	int					status;
-	size_t				i;
+	t_gnl_fd	*s;
+	int			status;
+	size_t		i;
 
 	if (fd < 0 || !line)
 		return (-1);
 	i = -1ULL;
 	s = NULL;
-	while (++i < g_state.fds.item_count)
-		if ((s = (t_gnl_fd*)ft_ary_get(&g_state.fds, i))->fd == fd)
+	while (++i < g_bufio_state.fds.item_count)
+		if ((s = (t_gnl_fd*)ft_ary_get(&g_bufio_state.fds, i))->fd == fd)
 			break ;
 	if (s == NULL || s->fd != fd)
-		if (!(s = gnl_setup(&g_state, fd)))
+		if (!(s = gnl_setup(&g_bufio_state, fd)))
 			return (-1);
 	status = gnl_next(s);
 	if (status == 1)
@@ -132,7 +133,7 @@ int				get_next_line(const int fd, char **line)
 	else
 	{
 		*line = 0;
-		gnl_destroy(&g_state, fd);
+		gnl_destroy(&g_bufio_state, fd);
 	}
 	return (status);
 }
