@@ -6,7 +6,7 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/26 12:34:56 by kyork             #+#    #+#             */
-/*   Updated: 2017/01/25 14:37:46 by kyork            ###   ########.fr       */
+/*   Updated: 2017/01/25 14:48:46 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ static int		gnl_next(t_gnl_fd *s)
 			return (1);
 	}
 }
-	
+
 t_gnlstate		g_bufio_state = {{0, sizeof(t_gnl_fd), 0, 1}};
 
 int				get_next_line(const int fd, char **line)
