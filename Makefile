@@ -6,7 +6,7 @@
 #    By: kyork <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/08/22 09:02:39 by kyork             #+#    #+#              #
-#    Updated: 2017/01/25 14:46:04 by kyork            ###   ########.fr        #
+#    Updated: 2017/01/25 22:46:28 by kyork            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,10 @@ PREFIX		= $(HOME)
 
 FILENAMES	+= get_next_line.c get_next_char.c
 FILENAMES	+= ft_progname.c ft_basename.c
+
+FILENAMES	+= dynstring/dynstring_appch.c dynstring/dynstring_destroy.c
+FILENAMES	+= dynstring/dynstring_grow.c dynstring/dynstring_new.c
+FILENAMES	+= dynstring/dynstring_strdup.c
 
 FILENAMES	+= ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c
 FILENAMES	+= ft_toupper.c ft_tolower.c
@@ -138,6 +142,7 @@ re: fclean
 
 build:
 	mkdir build/
+	mkdir build/libft_dynstring
 
 ####
 # Libraries
