@@ -6,7 +6,7 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 17:09:40 by kyork             #+#    #+#             */
-/*   Updated: 2017/01/25 17:43:08 by kyork            ###   ########.fr       */
+/*   Updated: 2017/01/25 17:45:35 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 # else
 #  define ASAN_POISON(addr, size)   ((void)(addr), (void)(size))
 #  define ASAN_UNPOISON(addr, size) ((void)(addr), (void)(size))
-# endif 
+# endif
 
 /*
 ** Represents a single allocation inside an arena.

@@ -6,7 +6,7 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 17:34:33 by kyork             #+#    #+#             */
-/*   Updated: 2017/01/25 17:38:32 by kyork            ###   ########.fr       */
+/*   Updated: 2017/01/25 17:45:24 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,3 @@ static inline void	*adj_ptr(void *ptr, size_t offset)
 	mem = ptr;
 	return (mem + offset);
 }
-
-

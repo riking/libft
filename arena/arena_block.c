@@ -6,7 +6,7 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 17:38:36 by kyork             #+#    #+#             */
-/*   Updated: 2017/01/25 17:41:15 by kyork            ###   ########.fr       */
+/*   Updated: 2017/01/25 17:45:44 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static inline void	*adj_ptr(void *ptr, size_t offset)
 }
 
 t_ar_block			*arena_getblock(t_arena *a, void *ptr)
-{	
+{
 	size_t		idx;
 	t_ar_block	*b;
 
