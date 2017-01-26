@@ -6,7 +6,7 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 22:31:38 by kyork             #+#    #+#             */
-/*   Updated: 2017/01/25 22:37:18 by kyork            ###   ########.fr       */
+/*   Updated: 2017/01/25 23:04:04 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,7 @@ int		dynstring_appch(t_dynstring *s, char ch)
 			return (r);
 	s->str[s->len++] = ch;
 	s->str[s->len] = 0;
+	if (s->cap < s->len)
+		__builtin_trap();
 	return (0);
 }

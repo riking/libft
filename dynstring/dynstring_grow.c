@@ -6,7 +6,7 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 22:40:32 by kyork             #+#    #+#             */
-/*   Updated: 2017/01/25 22:44:46 by kyork            ###   ########.fr       */
+/*   Updated: 2017/01/25 23:03:30 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int			dynstring_grow(t_dynstring *s, size_t min_size)
 	size_t	new_size;
 	char	*m;
 
-	if (s->cap - 1 > min_size)
+	if (s->cap > min_size + 1)
 		return (0);
 	new_size = s->cap * 2;
 	if (new_size < min_size)
