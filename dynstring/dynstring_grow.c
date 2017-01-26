@@ -6,7 +6,7 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 22:40:32 by kyork             #+#    #+#             */
-/*   Updated: 2017/01/25 23:03:30 by kyork            ###   ########.fr       */
+/*   Updated: 2017/01/25 23:08:50 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,6 @@ int			dynstring_grow(t_dynstring *s, size_t min_size)
 	ft_bzero(m + s->len, new_size - s->len);
 	free(s->str);
 	s->str = m;
+	s->cap = new_size;
 	return (0);
 }
