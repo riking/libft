@@ -6,7 +6,7 @@
 #    By: kyork <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/09 19:11:26 by kyork             #+#    #+#              #
-#    Updated: 2016/11/10 20:54:31 by kyork            ###   ########.fr        #
+#    Updated: 2017/02/16 10:18:11 by kyork            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME		= libftprintf.a
 FILENAMES	+= do_printf.c ft_strichr.c printer.c strout.c
 FILENAMES	+= parse_fmt.c parse_numflag.c
 FILENAMES	+= out_chr.c out_dec.c out_base.c out_pct.c
-FILENAMES	+= dprintf.c snprintf.c asprintf.c
+FILENAMES	+= dprintf.c snprintf.c asprintf.c perrorf.c
 
 OBJS		= $(addprefix build/ft_printf_, $(FILENAMES:.c=.o))
 

@@ -6,7 +6,7 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/18 12:31:03 by kyork             #+#    #+#             */
-/*   Updated: 2016/10/27 15:08:15 by kyork            ###   ########.fr       */
+/*   Updated: 2017/02/16 10:12:06 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ PRINTF_FUNC1	ft_printf(const char *fmt, ...);
 PRINTF_FUNC2	ft_dprintf(int fd, const char *fmt, ...);
 PRINTF_FUNC3	ft_snprintf(char *str, size_t size, const char *fmt, ...);
 PRINTF_FUNC2	ft_asprintf(char **ret, const char *fmt, ...);
+
+PRINTF_FUNC1	ft_perrorf(const char *reasonfmt, ...);
 
 # if defined(_VA_LIST) || defined(va_arg)
 
