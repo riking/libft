@@ -6,7 +6,7 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 10:12:30 by kyork             #+#    #+#             */
-/*   Updated: 2017/02/16 10:17:38 by kyork            ###   ########.fr       */
+/*   Updated: 2017/02/16 11:11:30 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int		ft_perrorf(const char *fmt, ...)
 	if (len < 0)
 		write(2, PERROR_ERR, sizeof(PERROR_ERR) - 1);
 	er = sys_errlist[errnum];
-	len = ft_dprintf(2, "%s: %s", reason, er);
+	len = ft_dprintf(2, "%s: %s\n", reason, er);
 	free(reason);
 	return (len);
 }
