@@ -6,7 +6,7 @@
 #    By: kyork <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/08/22 09:02:39 by kyork             #+#    #+#              #
-#    Updated: 2018/05/07 18:56:40 by kyork            ###   ########.fr        #
+#    Updated: 2018/05/07 19:00:05 by kyork            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -82,7 +82,7 @@ TESTS		+= ary
 FILENAMES	+= vtable_typecheck.c
 FILENAMES	+= vtable/ft_reader_fd.c vtable/ft_reader_null.c vtable/ft_reader_str.c
 FILENAMES	+= vtable/ft_writer_fd.c vtable/ft_writer_null.c vtable/ft_writer_str.c
-FILENAMES	+= vtable/ft_writer_autostr.c
+FILENAMES	+= vtable/ft_writer_autostr.c vtable/ft_writer_autostr2.c
 
 CC			= gcc
 
