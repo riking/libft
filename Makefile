@@ -6,7 +6,7 @@
 #    By: kyork <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/08/22 09:02:39 by kyork             #+#    #+#              #
-#    Updated: 2017/01/25 22:46:28 by kyork            ###   ########.fr        #
+#    Updated: 2018/05/07 18:15:38 by kyork            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -79,6 +79,8 @@ FILENAMES	+= ft_ary_remove_mul.c ft_ary_destroy2.c
 FILENAMES	+= ft_ary_foreach.c ft_ary_clone.c ft_ary_poplast.c
 TESTS		+= ary
 
+FILENAMES	+= vtable/ft_reader_fd.c vtable/ft_reader_null.c vtable/ft_reader_str.c
+
 CC			= gcc
 
 CFLAGS		+= -Wall -Wextra -Wmissing-prototypes
@@ -140,10 +142,6 @@ fclean: clean
 re: fclean
 	$(MAKE) all
 
-build:
-	mkdir build/
-	mkdir build/libft_dynstring
-
 ####
 # Libraries
 $(NAME): libftfuncs.a libftprintf.a
@@ -184,10 +182,12 @@ install_clean:
 	rm -f $(PREFIX)/include/libft.h
 	rm -f $(PREFIX)/include/ft_printf.h
 
-build/libft_%.o: %.c libft.h | build
+build/libft_%.o: %.c libft.h
+	@mkdir -p $(@D)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-build/test_%.o: tests/test_%.c libft.h | build
+build/test_%.o: tests/test_%.c libft.h
+	@mkdir -p $(@D)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 test: $(TESTBINS)

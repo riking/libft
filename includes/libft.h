@@ -6,7 +6,7 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/18 11:01:11 by kyork             #+#    #+#             */
-/*   Updated: 2017/01/25 14:42:25 by kyork            ###   ########.fr       */
+/*   Updated: 2018/05/07 18:06:17 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -187,6 +187,37 @@ void				ft_ary_swap(t_array *ary, size_t i, size_t j);
 typedef int			(*t_sortfunc)(void *left, void *right, size_t size,
 						void *data);
 void				ft_ary_sort(t_array *ary, t_sortfunc cmp, void *cmp_data);
+
+/*
+** Reader/Writer vtable functions
+*/
+typedef struct		s_ft_reader_vtable {
+	ssize_t		(*read)(void *state, char *buf, size_t len);
+	void		(*free)(void *state);
+}					t_ft_reader_vtable;
+typedef struct		s_ft_writer_vtable {
+	ssize_t		(*write)(void *state, const char *buf, size_t len);
+	void		(*free)(void *state);
+}					t_ft_writer_vtable;
+
+typedef struct		s_ft_reader {
+	const t_ft_reader_vtable	*vtable;
+	void						*state;
+}					t_ft_reader;
+typedef struct		s_ft_writer {
+	const t_ft_writer_vtable	*vtable;
+	void						*state;
+}					t_ft_writer;
+
+t_ft_reader			ft_reader_fd(int fd);
+t_ft_reader			ft_reader_str(const char *str, size_t len);
+t_ft_reader			ft_reader_null(void);
+t_ft_writer			ft_writer_fd(int fd);
+t_ft_writer			ft_writer_str(char *buf, size_t buf_len);
+t_ft_writer			ft_writer_null(void);
+
+size_t				ft_strreader_count(void *state);
+size_t				ft_strwriter_count(void *state);
 
 /*
 ** Extra functions
