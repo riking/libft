@@ -6,7 +6,7 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/07 17:55:16 by kyork             #+#    #+#             */
-/*   Updated: 2018/05/07 18:16:11 by kyork            ###   ########.fr       */
+/*   Updated: 2018/05/07 18:38:40 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,15 @@ t_ft_reader					ft_reader_str(const char *str, size_t len)
 	st->idx = 0;
 	st->cap = len;
 	return (t_ft_reader){&g_ft_strreader_vtable, st};
+}
+
+size_t				ft_strreader_count(t_ft_reader obj)
+{
+	t_ft_strreader_state	*st;
+
+	vtable_typecheck("t_ft_strreader", obj.vtable, &g_ft_strreader_vtable);
+	st = obj.state;
+	return (st->idx);
 }
 
 const t_ft_reader_vtable	g_ft_strreader_vtable = {

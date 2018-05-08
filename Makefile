@@ -6,7 +6,7 @@
 #    By: kyork <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/08/22 09:02:39 by kyork             #+#    #+#              #
-#    Updated: 2018/05/07 18:15:38 by kyork            ###   ########.fr        #
+#    Updated: 2018/05/07 18:56:40 by kyork            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -79,7 +79,10 @@ FILENAMES	+= ft_ary_remove_mul.c ft_ary_destroy2.c
 FILENAMES	+= ft_ary_foreach.c ft_ary_clone.c ft_ary_poplast.c
 TESTS		+= ary
 
+FILENAMES	+= vtable_typecheck.c
 FILENAMES	+= vtable/ft_reader_fd.c vtable/ft_reader_null.c vtable/ft_reader_str.c
+FILENAMES	+= vtable/ft_writer_fd.c vtable/ft_writer_null.c vtable/ft_writer_str.c
+FILENAMES	+= vtable/ft_writer_autostr.c
 
 CC			= gcc
 
