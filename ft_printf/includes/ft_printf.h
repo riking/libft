@@ -6,7 +6,7 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/18 12:31:03 by kyork             #+#    #+#             */
-/*   Updated: 2017/02/16 10:12:06 by kyork            ###   ########.fr       */
+/*   Updated: 2018/05/23 13:12:59 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,15 @@ PRINTF_FUNC3	ft_snprintf(char *str, size_t size, const char *fmt, ...);
 PRINTF_FUNC2	ft_asprintf(char **ret, const char *fmt, ...);
 
 PRINTF_FUNC1	ft_perrorf(const char *reasonfmt, ...);
+
+/*
+** Only snprintf() is no-malloc-safe, and only for the following input data:
+** Strings only if narrow, Chars only if narrow, Integers only if no precision
+** is specified.
+**
+** ft_printf() and ft_dprintf() allocate space for an output buffer.
+** ft_asprintf calls malloc(3) by spec.
+*/
 
 # if defined(_VA_LIST) || defined(va_arg)
 
