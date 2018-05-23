@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fmt_dec.c                                          :+:      :+:    :+:   */
+/*   out_dec.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/18 14:08:33 by kyork             #+#    #+#             */
-/*   Updated: 2016/10/21 20:59:30 by kyork            ###   ########.fr       */
+/*   Updated: 2018/05/23 13:06:42 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ int				ft_printf_d(t_printf_parse *parse, va_list args)
 {
 	uint64_t	n;
 	ssize_t		count;
+	char		dbuf[21];
 	char		*buf;
 
 	if (HAVE_FLAG(parse, PF_FLAG_HAVE_PRECIS))
@@ -80,7 +81,7 @@ int				ft_printf_d(t_printf_parse *parse, va_list args)
 	if (parse->precis > 20)
 		buf = malloc(parse->precis + 1);
 	else
-		buf = malloc(21);
+		buf = &dbuf[0];
 	if (!buf)
 		return (-1);
 	n = ft_printf_get_int_arg(parse, true, args);
@@ -95,6 +96,7 @@ int				ft_printf_u(t_printf_parse *parse, va_list args)
 {
 	uint64_t	n;
 	ssize_t		count;
+	char		dbuf[21];
 	char		*buf;
 
 	if (HAVE_FLAG(parse, PF_FLAG_HAVE_PRECIS))
@@ -102,7 +104,7 @@ int				ft_printf_u(t_printf_parse *parse, va_list args)
 	if (parse->precis > 20)
 		buf = malloc(parse->precis + 1);
 	else
-		buf = malloc(21);
+		buf = &dbuf[0];
 	if (!buf)
 		return (-1);
 	n = ft_printf_get_int_arg(parse, false, args);
