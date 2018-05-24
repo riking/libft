@@ -6,7 +6,7 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/18 14:09:17 by kyork             #+#    #+#             */
-/*   Updated: 2018/05/23 13:07:21 by kyork            ###   ########.fr       */
+/*   Updated: 2018/05/23 17:14:54 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,8 @@ int				ft_printf_o(t_printf_parse *parse, va_list args)
 	if (HAVE_FLAG(parse, PF_FLAG_ALTERNATE) && buf[0] != '0')
 		parse->sign = '0';
 	count = ft_printf_digout(parse, buf, count);
-	free(buf);
+	if (buf != dbuf)
+		free(buf);
 	return (count);
 }
 
@@ -120,6 +121,7 @@ int				ft_printf_x(t_printf_parse *parse, va_list args)
 	else
 		count = ft_printf_itoa_hex(buf, "0123456789abcdef", parse, n);
 	count = ft_printf_digout(parse, buf, count);
-	free(buf);
+	if (buf != dbuf)
+		free(buf);
 	return (count);
 }

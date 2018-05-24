@@ -6,7 +6,7 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/18 14:08:33 by kyork             #+#    #+#             */
-/*   Updated: 2018/05/23 13:06:42 by kyork            ###   ########.fr       */
+/*   Updated: 2018/05/23 17:13:45 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,8 @@ int				ft_printf_d(t_printf_parse *parse, va_list args)
 	do_sign(parse, &n, true);
 	count = ft_printf_itoa_basic(buf, parse, n);
 	count = ft_printf_digout(parse, buf, count);
-	free(buf);
+	if (buf != dbuf)
+		free(buf);
 	return (count);
 }
 
@@ -110,6 +111,7 @@ int				ft_printf_u(t_printf_parse *parse, va_list args)
 	n = ft_printf_get_int_arg(parse, false, args);
 	count = ft_printf_itoa_basic(buf, parse, n);
 	count = ft_printf_digout(parse, buf, count);
-	free(buf);
+	if (buf != dbuf)
+		free(buf);
 	return (count);
 }
