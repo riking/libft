@@ -6,7 +6,7 @@
 #    By: kyork <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/09 19:11:26 by kyork             #+#    #+#              #
-#    Updated: 2018/05/07 19:15:32 by kyork            ###   ########.fr        #
+#    Updated: 2018/05/30 18:08:42 by kyork            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,26 +70,27 @@ fclean: clean
 re: fclean
 	$(MAKE) all
 
-build:
-	mkdir -p build
-
-build/ft_printf_%.o: srcs/%.c srcs/*.h | build
+build/ft_printf_%.o: srcs/%.c srcs/*.h
+	@mkdir -p $(@D)
 	$(CC) $(CFLAGS) -c -o $@ $<
 
-build/small_test.o: tests/small_test.c | build
+build/small_test.o: tests/small_test.c
+	@mkdir -p $(@D)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-smalltest: build/small_test.o $(NAME) | build
+smalltest: build/small_test.o $(NAME)
 	$(CC) $(LDFLAGS) -o $@ build/small_test.o -L. -lftprintf
 
-build/nm_test.o: tests/nm_test.c srcs/*.h | build
+build/nm_test.o: tests/nm_test.c srcs/*.h
+	@mkdir -p $(@D)
 	$(CC) $(CFLAGS) -c -o $@ $<
 
 nm_test: build/nm_test.o $(NAME)
 	$(CC) $(LDFLAGS) -o $@ build/nm_test.o -L. -lftprintf
 
-build/fuzz_main.o: tests/fuzz_main.c srcs/*.h | build
+build/fuzz_main.o: tests/fuzz_main.c srcs/*.h
+	@mkdir -p $(@D)
 	$(CC) $(CFLAGS) -c $< -o build/small_test.o -I ../libft/includes -I $(DYNCALL_PATH)/include
 
-fuzzmain: build/fuzz_main.o $(NAME) | build
+fuzzmain: build/fuzz_main.o $(NAME)
 	$(CC) $(LDFLAGS) -o $@ build/small_test.o -L. -lftprintf -L ../libft -lft -L $(DYNCALL_PATH)/lib -ldyncall_s
