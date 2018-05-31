@@ -6,12 +6,12 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/09 19:23:04 by kyork             #+#    #+#             */
-/*   Updated: 2018/05/30 18:04:30 by kyork            ###   ########.fr       */
+/*   Updated: 2018/05/30 19:02:43 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdarg.h>
-#include <ft_printf_export.h>
+#include "ft_printf_export.h"
 
 #include "ft_printf_private.h"
 
@@ -26,7 +26,8 @@ PRINTF_FUNC3		ft_snprintf(char *str, size_t max, const char *fmt, ...)
 	return (len);
 }
 
-EXPORT_INT			ft_vsnprintf(char *str, size_t max, const char *fmt, va_list args)
+EXPORT_INT			ft_vsnprintf(char *str, size_t max,
+		const char *fmt, va_list args)
 {
 	int				count;
 	t_printf_parse	parse;

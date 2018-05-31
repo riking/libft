@@ -6,12 +6,12 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/18 12:31:03 by kyork             #+#    #+#             */
-/*   Updated: 2018/05/30 18:02:36 by kyork            ###   ########.fr       */
+/*   Updated: 2018/05/30 19:02:14 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#ifndef FT_PRINTF_EXPORT_H
+# define FT_PRINTF_EXPORT_H
 
 # include <sys/types.h>
 
