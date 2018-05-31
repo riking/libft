@@ -6,9 +6,12 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 10:12:30 by kyork             #+#    #+#             */
-/*   Updated: 2017/02/16 11:11:30 by kyork            ###   ########.fr       */
+/*   Updated: 2018/05/30 18:05:14 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdarg.h>
+#include <ft_printf_export.h>
 
 #include "ft_printf_private.h"
 #include <stdlib.h>
@@ -18,7 +21,7 @@
 
 #define PERROR_ERR "<ERROR WHEN PRINTING ERROR REASON>"
 
-int		ft_perrorf(const char *fmt, ...)
+PRINTF_FUNC1	ft_perrorf(const char *fmt, ...)
 {
 	int			errnum;
 	va_list		args;

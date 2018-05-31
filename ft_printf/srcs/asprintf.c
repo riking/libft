@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   asprintf.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/09 19:23:04 by kyork             #+#    #+#             */
-/*   Updated: 2016/10/21 12:48:45 by kyork            ###   ########.fr       */
+/*   Updated: 2018/05/30 18:03:54 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdarg.h>
+#include <ft_printf_export.h>
 
 #include "ft_printf_private.h"
 #include <stdlib.h>
 
-int			ft_asprintf(char **ret, const char *fmt, ...)
+PRINTF_FUNC2		ft_asprintf(char **ret, const char *fmt, ...)
 {
 	va_list			args;
 	int				len;
@@ -24,7 +27,7 @@ int			ft_asprintf(char **ret, const char *fmt, ...)
 	return (len);
 }
 
-int			ft_vasprintf(char **ret, const char *fmt, va_list args)
+EXPORT_INT			ft_vasprintf(char **ret, const char *fmt, va_list args)
 {
 	ssize_t			count1;
 	ssize_t			count2;

@@ -1,18 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   snprintf.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/09 19:23:04 by kyork             #+#    #+#             */
-/*   Updated: 2016/11/27 17:09:21 by kyork            ###   ########.fr       */
+/*   Updated: 2018/05/30 18:04:30 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdarg.h>
+#include <ft_printf_export.h>
+
 #include "ft_printf_private.h"
 
-int			ft_snprintf(char *str, size_t max, const char *fmt, ...)
+PRINTF_FUNC3		ft_snprintf(char *str, size_t max, const char *fmt, ...)
 {
 	va_list			args;
 	int				len;
@@ -23,7 +26,7 @@ int			ft_snprintf(char *str, size_t max, const char *fmt, ...)
 	return (len);
 }
 
-int			ft_vsnprintf(char *str, size_t max, const char *fmt, va_list args)
+EXPORT_INT			ft_vsnprintf(char *str, size_t max, const char *fmt, va_list args)
 {
 	int				count;
 	t_printf_parse	parse;

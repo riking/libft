@@ -1,21 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dprintf.c                                       :+:      :+:    :+:   */
+/*   dprintf.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/09 19:23:04 by kyork             #+#    #+#             */
-/*   Updated: 2016/11/10 20:51:28 by kyork            ###   ########.fr       */
+/*   Updated: 2018/05/30 18:02:55 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdarg.h>
+#include <ft_printf_export.h>
 
 #include "ft_printf_private.h"
 
 #include <stdlib.h>
 #include <unistd.h>
 
-int			ft_printf(const char *fmt, ...)
+PRINTF_FUNC1		ft_printf(const char *fmt, ...)
 {
 	va_list			args;
 	int				len;
@@ -26,12 +29,12 @@ int			ft_printf(const char *fmt, ...)
 	return (len);
 }
 
-int			ft_vprintf(const char *fmt, va_list args)
+EXPORT_INT			ft_vprintf(const char *fmt, va_list args)
 {
 	return (ft_vdprintf(1, fmt, args));
 }
 
-int			ft_dprintf(int fd, const char *fmt, ...)
+PRINTF_FUNC2		ft_dprintf(int fd, const char *fmt, ...)
 {
 	va_list			args;
 	int				len;
@@ -42,7 +45,7 @@ int			ft_dprintf(int fd, const char *fmt, ...)
 	return (len);
 }
 
-int			ft_vdprintf(int fd, const char *fmt, va_list args)
+EXPORT_INT			ft_vdprintf(int fd, const char *fmt, va_list args)
 {
 	int				count;
 	t_printf_parse	parse;
