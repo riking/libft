@@ -1,3 +1,4 @@
 build/
 libftprintf.a
 libftprintf_*.o
+exported_darwin.sym

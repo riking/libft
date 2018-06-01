@@ -6,12 +6,17 @@
 /*   By: kyork <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/18 12:31:03 by kyork             #+#    #+#             */
-/*   Updated: 2018/05/30 19:02:14 by kyork            ###   ########.fr       */
+/*   Updated: 2018/05/31 18:02:54 by kyork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_EXPORT_H
 # define FT_PRINTF_EXPORT_H
+# define FT_PRINTF_H
+
+/*
+** ^ Prevent the non-export version from being defined
+*/
 
 # include <sys/types.h>
 
@@ -37,7 +42,8 @@ PRINTF_FUNC1	ft_perrorf(const char *reasonfmt, ...);
 ** ft_asprintf calls malloc(3) by spec.
 */
 
-# if defined(_VA_LIST) || defined(va_arg)
+# include <stdarg.h>
+# if 1
 
 /*
 ** expose v*printf functions only if stdarg.h has been included
