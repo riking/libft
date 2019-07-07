@@ -10,6 +10,7 @@ cc_library(
         "includes/commontypes.h",
         "includes/libft.h",
     ],
+    linkstatic = 1,
     strip_include_prefix = "//github.com/riking/libft/includes/",
     visibility = ["//visibility:public"],
 )

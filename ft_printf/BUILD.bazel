@@ -1,13 +1,13 @@
 cc_library(
     name = "ft_printf",
     srcs = [
+        "includes/ft_printf.h",
         "srcs/asprintf.c",
         "srcs/do_printf.c",
         "srcs/dprintf.c",
         "srcs/ft_printf_export.h",
         "srcs/ft_printf_private.h",
         "srcs/ft_strichr.c",
-        "includes/ft_printf.h",
         "srcs/out_base.c",
         "srcs/out_chr.c",
         "srcs/out_dec.c",
