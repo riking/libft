@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 #include <stdlib.h>
 
 void	ft_strtab_destroy(char **tab)
