@@ -1,0 +1,178 @@
+cc_test(
+    name = "test_ary",
+    srcs = ["test_ary.c"],
+    deps = [
+        "//github.com/riking/libft",
+        "//github.com/riking/libft:ft_printf",
+    ],
+)
+
+cc_test(
+    name = "test_atoi",
+    srcs = ["test_atoi.c"],
+    deps = ["//github.com/riking/libft"],
+)
+
+cc_test(
+    name = "test_isstuff",
+    srcs = ["test_isstuff.c"],
+    deps = ["//github.com/riking/libft"],
+)
+
+cc_test(
+    name = "test_lstdel",
+    srcs = ["test_lstdel.c"],
+    deps = ["//github.com/riking/libft"],
+)
+
+cc_test(
+    name = "test_memccpy",
+    srcs = ["test_memccpy.c"],
+    deps = ["//github.com/riking/libft"],
+)
+
+cc_test(
+    name = "test_memchr",
+    srcs = ["test_memchr.c"],
+    deps = ["//github.com/riking/libft"],
+)
+
+cc_test(
+    name = "test_memcmp",
+    srcs = ["test_memcmp.c"],
+    deps = ["//github.com/riking/libft"],
+)
+
+cc_test(
+    name = "test_memcpy",
+    srcs = ["test_memcpy.c"],
+    deps = ["//github.com/riking/libft"],
+)
+
+cc_test(
+    name = "test_memmove",
+    srcs = ["test_memmove.c"],
+    deps = ["//github.com/riking/libft"],
+)
+
+cc_test(
+    name = "test_putnbr",
+    srcs = ["test_putnbr.c"],
+    deps = ["//github.com/riking/libft"],
+)
+
+cc_test(
+    name = "test_putstuff",
+    srcs = ["test_putstuff.c"],
+    deps = ["//github.com/riking/libft"],
+)
+
+cc_test(
+    name = "test_quentin",
+    srcs = ["test_quentin.c"],
+    deps = ["//github.com/riking/libft"],
+)
+
+cc_test(
+    name = "test_split",
+    srcs = ["test_split.c"],
+    deps = ["//github.com/riking/libft"],
+)
+
+cc_test(
+    name = "test_strcat",
+    srcs = ["test_strcat.c"],
+    deps = ["//github.com/riking/libft"],
+)
+
+cc_test(
+    name = "test_strchr",
+    srcs = ["test_strchr.c"],
+    deps = ["//github.com/riking/libft"],
+)
+
+cc_test(
+    name = "test_strcmp",
+    srcs = ["test_strcmp.c"],
+    deps = ["//github.com/riking/libft"],
+)
+
+cc_test(
+    name = "test_strcpy",
+    srcs = ["test_strcpy.c"],
+    deps = ["//github.com/riking/libft"],
+)
+
+cc_test(
+    name = "test_strjoin",
+    srcs = ["test_strjoin.c"],
+    deps = ["//github.com/riking/libft"],
+)
+
+# Test does not run on some linux systems (no strlcat in stdlib)
+cc_test(
+    name = "test_strlcat",
+    srcs = ["test_strlcat.c"],
+    defines = select({
+        "@bazel_tools//src/conditions:linux_x86_64": ["INCLUDE_BSD_STRING_H"],
+        "@bazel_tools//src/conditions:linux_aarch64": ["INCLUDE_BSD_STRING_H"],
+        "//conditions:default": [],
+    }),
+    tags = ["manual"],
+    deps = ["//github.com/riking/libft"],
+)
+
+cc_test(
+    name = "test_strlen",
+    srcs = ["test_strlen.c"],
+    deps = ["//github.com/riking/libft"],
+)
+
+cc_test(
+    name = "test_strncat",
+    srcs = ["test_strncat.c"],
+    deps = ["//github.com/riking/libft"],
+)
+
+cc_test(
+    name = "test_strncmp",
+    srcs = ["test_strncmp.c"],
+    deps = ["//github.com/riking/libft"],
+)
+
+cc_test(
+    name = "test_strncpy",
+    srcs = ["test_strncpy.c"],
+    deps = ["//github.com/riking/libft"],
+)
+
+cc_test(
+    name = "test_strstr",
+    srcs = ["test_strsub.c"],
+    deps = ["//github.com/riking/libft"],
+)
+
+cc_test(
+    name = "test_strtrim",
+    srcs = ["test_strtrim.c"],
+    deps = ["//github.com/riking/libft"],
+)
+
+cc_test(
+    name = "test_unicode",
+    srcs = ["test_unicode.c"],
+    deps = ["//github.com/riking/libft"],
+)
+
+cc_test(
+    name = "test_yachaka",
+    srcs = ["test_yachaka.c"],
+    deps = ["//github.com/riking/libft"],
+)
+
+sh_test(
+    name = "shtest_nm",
+    size = "small",
+    srcs = ["shtest_nm.sh"],
+    data = ["//github.com/riking/libft"],
+)

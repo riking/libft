@@ -1,0 +1,31 @@
+cc_library(
+    name = "ft_printf",
+    srcs = [
+        "srcs/asprintf.c",
+        "srcs/do_printf.c",
+        "srcs/dprintf.c",
+        "srcs/ft_printf_export.h",
+        "srcs/ft_printf_private.h",
+        "srcs/ft_strichr.c",
+        "includes/ft_printf.h",
+        "srcs/out_base.c",
+        "srcs/out_chr.c",
+        "srcs/out_dec.c",
+        "srcs/out_pct.c",
+        "srcs/parse_fmt.c",
+        "srcs/parse_numflag.c",
+        "srcs/perrorf.c",
+        "srcs/printer.c",
+        "srcs/snprintf.c",
+        "srcs/strout.c",
+    ],
+    includes = [
+        "includes/",
+    ],
+    visibility = [
+        "//github.com/riking/libft:__pkg__",
+    ],
+    deps = [
+        "//github.com/riking/libft",
+    ],
+)
