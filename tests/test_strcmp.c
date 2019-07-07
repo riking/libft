@@ -14,6 +14,10 @@
 
 #include <stdio.h>
 
+#ifndef VERBOSE
+# define VERBOSE 0
+#endif
+
 char	*g_testcases[][2] = {
 	{"", ""},
 	{"aaaaaaa", ""},

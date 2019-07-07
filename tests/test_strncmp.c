@@ -15,6 +15,10 @@
 #include <stdio.h>
 #include <string.h>
 
+#ifndef VERBOSE
+# define VERBOSE 0
+#endif
+
 typedef struct	s_testcase{
 	char		*s1;
 	char		*s2;

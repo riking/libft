@@ -13,6 +13,7 @@
 #include "libft.h"
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <fcntl.h>
 #include <unistd.h>
 
@@ -66,4 +67,5 @@ int		main(void)
 		printf("FAIL: wrong content, got: %s\n", buf);
 	close(fd);
 	printf("Done\n");
+	return (0);
 }

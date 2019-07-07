@@ -17,6 +17,10 @@
 #include <string.h>
 #include <stdlib.h>
 
+#ifndef VERBOSE
+# define VERBOSE 0
+#endif
+
 char		g_putchar[100];
 int			g_putchar_idx = 0;
 
